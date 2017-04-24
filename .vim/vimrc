@@ -1,0 +1,42 @@
+execute pathogen#infect()
+
+syntax enable
+colorscheme desert
+
+set nobackup
+set writebackup
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set nocindent
+set nosmartindent
+set autoindent
+
+set number
+set hlsearch
+
+inoremap <S-Tab> <C-d>
+
+autocmd FileType make set noexpandtab
+
+" Navigation
+nnoremap <Tab> <C-w>w
+
+" NERDTree
+nmap <F8> :NERDTreeToggle<CR>
+
+"
+" YouCompleteMe
+"
+
+" Do not use TAB for selection from completion list
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+
+""" Colors and highlighting
+
+" Color column 81
+set colorcolumn=81
+highlight ColorColumn ctermbg=8

@@ -32,6 +32,10 @@ nmap <F8> :NERDTreeToggle<CR>
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 
+" Mappings for GoTo commands
+nmap <F12> :YcmCompleter GoTo<CR>
+nmap <C-S-g> :YcmCompleter GoToInclude<CR>
+
 """ Colors and highlighting
 
 " Color column 81
@@ -89,8 +93,19 @@ function! ResizeWindowDown()
     endif
 endfunction
 
-nnoremap <silent> <Esc>h :call ResizeWindowLeft()<CR>
-nnoremap <silent> <Esc>j :call ResizeWindowDown()<CR>
-nnoremap <silent> <Esc>k :call ResizeWindowUp()<CR>
-nnoremap <silent> <Esc>l :call ResizeWindowRight()<CR>
+" Map Ctrl+<arrow> input from tmux configured as:
+" * 'xterm-keys' window option set
+" * Using 'screen-256color' TERM
+"
+" screen* TERM is basically required for correct rendering of panes, etc.
+" xterm escape sequences are easier to map in Vim somehow.
+nmap [1;5A <C-Up>
+nmap [1;5B <C-Down>
+nmap [1;5C <C-Right>
+nmap [1;5D <C-Left>
+
+nnoremap <silent> <C-Left> :call ResizeWindowLeft()<CR>
+nnoremap <silent> <C-Down> :call ResizeWindowDown()<CR>
+nnoremap <silent> <C-Up> :call ResizeWindowUp()<CR>
+nnoremap <silent> <C-Right> :call ResizeWindowRight()<CR>
 

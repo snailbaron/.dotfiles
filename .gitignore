@@ -1,5 +1,8 @@
 /*
 /*/
 !/.tmux.conf
-!/.vim
+!/.vim/bundle
+!/.vim/vimrc
+!/.vim/gvimrc
+!/.vim/autoload/pathogen.vim
 !/.gitignore

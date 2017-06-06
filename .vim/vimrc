@@ -17,7 +17,14 @@ set autoindent
 set number
 set hlsearch
 
+if has('win32')
+    language english
+else
+    language en_US.UTF-8
+endif
+
 inoremap <S-Tab> <C-d>
+
 
 autocmd FileType make set noexpandtab
 

@@ -2,4 +2,9 @@ set guioptions-=m
 set guioptions-=T
 set columns=160
 set lines=50
-set guifont=DejaVu\ Sans\ Mono\ 9
+
+if has('win32')
+    set guifont=Consolas:h11
+else
+    set guifont=DejaVu\ Sans\ Mono\ 9
+endif

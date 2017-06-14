@@ -109,3 +109,8 @@ nnoremap <silent> <Esc>j :call ResizeWindowDown()<CR>
 nnoremap <silent> <Esc>k :call ResizeWindowUp()<CR>
 nnoremap <silent> <Esc>l :call ResizeWindowRight()<CR>
 
+nnoremap <silent> <M-h> :call ResizeWindowLeft()<CR>
+nnoremap <silent> <M-j> :call ResizeWindowDown()<CR>
+nnoremap <silent> <M-k> :call ResizeWindowUp()<CR>
+nnoremap <silent> <M-l> :call ResizeWindowRight()<CR>
+

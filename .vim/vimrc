@@ -19,7 +19,7 @@ set encoding=utf-8
 set number
 set hlsearch
 
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=0 ttimeoutlen=0
 
 if has('win32')
     language english

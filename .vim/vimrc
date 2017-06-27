@@ -20,6 +20,8 @@ set number
 set hlsearch
 
 set timeoutlen=0 ttimeoutlen=0
+set cursorline
+highlight CursorLine cterm=NONE ctermbg=8
 
 if has('win32')
     language english

@@ -20,9 +20,8 @@ set number
 set hlsearch
 
 set timeoutlen=0 ttimeoutlen=0
-set cursorline
-highlight CursorLine cterm=NONE ctermbg=8
 
+" English, do you speak it?
 if has('win32')
     language english
 else
@@ -31,8 +30,18 @@ endif
 
 inoremap <S-Tab> <C-d>
 
-
 autocmd FileType make set noexpandtab
+
+""" Colors and highlighting
+
+" Color column 81 with light gray
+set colorcolumn=81
+highlight ColorColumn ctermbg=8
+
+" Indicate current line with deep black
+set cursorline
+highlight CursorLine cterm=NONE ctermbg=16
+
 
 " NERDTree
 nmap <F8> :NERDTreeToggle<CR>
@@ -48,12 +57,6 @@ let g:ycm_key_list_previous_completion = ['<Up>']
 " Mappings for GoTo commands
 nmap <F12> :YcmCompleter GoTo<CR>
 nmap <C-S-g> :YcmCompleter GoToInclude<CR>
-
-""" Colors and highlighting
-
-" Color column 81
-set colorcolumn=81
-highlight ColorColumn ctermbg=8
 
 "
 " Resize current window like tmux: move current window's right/bottom side,

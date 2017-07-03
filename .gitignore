@@ -1,5 +1,6 @@
-/*
-/*/
+!/.gitignore
+!/.subversion/config
 !/.tmux.conf
 !/.vim/
-!/.gitignore
+/*
+/*/

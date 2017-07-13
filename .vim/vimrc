@@ -36,7 +36,7 @@ autocmd FileType make set noexpandtab
 
 " Color column 81 with light gray
 set colorcolumn=81
-highlight ColorColumn ctermbg=8
+highlight ColorColumn ctermbg=7
 
 " Indicate current line with deep black
 set cursorline

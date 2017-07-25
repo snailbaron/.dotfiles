@@ -40,8 +40,7 @@ highlight ColorColumn ctermbg=7
 
 " Indicate current line with deep black
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=16
-
+highlight CursorLine cterm=NONE ctermbg=16 guibg=black
 
 " NERDTree
 nmap <F8> :NERDTreeToggle<CR>

@@ -1,9 +1,14 @@
+# Ignore everything by default; only track necessary files
 /*
-!/.colordiffrc
+
+# Configuration directories
 !/.config/openbox/
 !/.config/sakura/
 !/.config/tint2/
-!/.gitignore
-!/.subversion/config
-!/.tmux.conf
+!/.subversion/
 !/.vim/
+
+# Configuration files
+!/.colordiffrc
+!/.gitignore
+!/.tmux.conf

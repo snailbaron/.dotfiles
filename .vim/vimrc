@@ -1,6 +1,10 @@
 execute pathogen#infect()
 
 syntax enable
+
+" Create highlight group for improper whitespace usage
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=5 guibg=red
+
 colorscheme desert
 
 set nobackup
@@ -20,6 +24,9 @@ set number
 set hlsearch
 
 set timeoutlen=0 ttimeoutlen=0
+
+" Highlight whitespaces in unusual places
+match ExtraWhitespace /\s\+$/
 
 " English, do you speak it?
 if has('win32')
@@ -48,6 +55,9 @@ nmap <F8> :NERDTreeToggle<CR>
 "
 " YouCompleteMe
 "
+
+" Use global YCM configuration file
+let g:ycm_global_ycm_extra_conf = '~/.global_ycm_extra_conf.py'
 
 " Do not use TAB for selection from completion list
 let g:ycm_key_list_select_completion = ['<Down>']

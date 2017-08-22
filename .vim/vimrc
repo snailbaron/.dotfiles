@@ -27,6 +27,7 @@ set timeoutlen=0 ttimeoutlen=0
 
 " Highlight whitespaces in unusual places
 match ExtraWhitespace /\s\+$/
+autocmd FileType cpp match ExtraWhitespace /\s\+$\|\t/
 
 " English, do you speak it?
 if has('win32')

@@ -7,6 +7,7 @@
 !/.config/tint2/
 !/.subversion/
 !/.vim/
+!/.tmux/plugins/tpm/
 
 # Configuration files
 !/.colordiffrc

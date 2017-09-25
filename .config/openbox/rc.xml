@@ -320,9 +320,47 @@
         <command>kfmclient openProfile filemanagement</command>
       </action>
     </keybind>
+
     <keybind key="A-F2">
       <action name="Execute">
-        <command>dmenu_run</command>
+        <command>dmenu_run -fn "-xos4-terminus-medium-r-*-*-18-*"</command>
+      </action>
+    </keybind>
+
+    <!-- Switch to next window, fixed order -->
+    <keybind key="F3">
+      <action name="NextWindow">
+        <interactive>no</interactive>
+        <linear>yes</linear>
+      </action>
+    </keybind>
+
+    <!-- Switch to previous window, fixed order -->
+    <keybind key="F2">
+      <action name="PreviousWindow">
+        <interactive>no</interactive>
+        <linear>yes</linear>
+      </action>
+    </keybind>
+
+    <!-- Switch to previous active window -->
+    <keybind key="F1">
+      <action name="NextWindow">
+        <interactive>no</interactive>
+      </action>
+    </keybind>
+
+    <!-- Close currently active window -->
+    <keybind key="F4">
+      <action name="Close"/>
+    </keybind>
+
+    <!--
+      Mappings for frequently used applications
+    -->
+    <keybind key="F11">
+      <action name="Execute">
+        <command>Telegram</command>
       </action>
     </keybind>
   </keyboard>

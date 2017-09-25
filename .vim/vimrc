@@ -45,8 +45,12 @@ highlight ColorColumn ctermbg=magenta
 set cursorline
 highlight CursorLine cterm=NONE ctermbg=black guibg=black
 
-" NERDTree
-nmap <F8> :NERDTreeToggle<CR>
+"
+" netrw
+"
+
+let g:netrw_banner = 0
+let g:netrw_sort_sequence = "[\/]$"
 
 "
 " YouCompleteMe

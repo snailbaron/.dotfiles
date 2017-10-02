@@ -20,6 +20,7 @@ set encoding=utf-8
 
 set number
 set hlsearch
+set mouse=a
 
 set timeoutlen=0 ttimeoutlen=0
 
@@ -92,63 +93,14 @@ function! OnBufferOpen()
     endif
 endfunction
 
-"
-" Resize current window like tmux: move current window's right/bottom side,
-" unless we are in a rightmost/bottommost window; in that case, resize the one
-" on the left/top.
-"
+let g:tmux_resizer_no_mappings = 1
 
-function! CanMoveToWindow(direction)
-    let canMove = 1
+nnoremap <silent> <Esc>h :TmuxResizeLeft<CR>
+nnoremap <silent> <Esc>j :TmuxResizeDown<CR>
+nnoremap <silent> <Esc>k :TmuxResizeUp<CR>
+nnoremap <silent> <Esc>l :TmuxResizeRight<CR>
 
-    let myWindow = winnr()
-    execute 'wincmd ' . a:direction
-    if winnr() == myWindow
-        let canMove = 0
-    endif
-    execute myWindow . 'wincmd w'
-
-    return canMove
-endfunction
-
-function! ResizeWindowRight()
-    if CanMoveToWindow('l')
-        execute '5wincmd>'
-    else
-        execute '5wincmd<'
-    endif
-endfunction
-
-function! ResizeWindowLeft()
-    if CanMoveToWindow('h')
-        execute '5wincmd>'
-    else
-        execute '5wincmd<'
-    endif
-endfunction
-
-function! ResizeWindowUp()
-    if CanMoveToWindow('k')
-        execute '3wincmd+'
-    else
-        execute '3wincmd-'
-    endif
-endfunction
-
-function! ResizeWindowDown()
-    if CanMoveToWindow('j')
-        execute '3wincmd+'
-    else
-        execute '3wincmd-'
-    endif
-endfunction
-
-nnoremap <silent> <Esc>h :call ResizeWindowLeft()<CR>
-nnoremap <silent> <Esc>j :call ResizeWindowDown()<CR>
-nnoremap <silent> <Esc>k :call ResizeWindowUp()<CR>
-nnoremap <silent> <Esc>l :call ResizeWindowRight()<CR>
-
-nnoremap <silent> <M-h> :call ResizeWindowLeft()<CR>
-nnoremap <silent> <M-j> :call ResizeWindowDown()<CR>
-nnoremap <silent> <M-k> :call ResizeWindowUp()<CR>
-nnoremap <silent> <M-l> :call ResizeWindowRight()<CR>
+nnoremap <silent> <M-h> :TmuxResizeLeft<CR>
+nnoremap <silent> <M-j> :TmuxResizeDown<CR>
+nnoremap <silent> <M-k> :TmuxResizeUp<CR>
+nnoremap <silent> <M-l> :TmuxResizeRight<CR>

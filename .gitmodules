@@ -28,6 +28,12 @@
 [submodule ".vim/bundle/vim-sensible"]
 	path = .vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
+[submodule ".vim/bundle/Conque-GDB"]
+	path = .vim/bundle/Conque-GDB
+	url = https://github.com/vim-scripts/Conque-GDB.git
+[submodule ".vim/bundle/vim-tmux-resizer"]
+	path = .vim/bundle/vim-tmux-resizer
+	url = https://github.com/melonmanchan/vim-tmux-resizer.git
 [submodule ".vim/bundle/vim-vinegar"]
 	path = .vim/bundle/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git

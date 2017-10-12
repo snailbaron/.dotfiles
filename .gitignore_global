@@ -1,0 +1,4 @@
+*.swp
+.netrwhist
+.ycm_extra_conf.py
+Session.vim

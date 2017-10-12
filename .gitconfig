@@ -1,0 +1,11 @@
+[user]
+	name = Igor Martynov
+	email = immartynov@yandex-team.ru
+[log]
+	decorate = true
+[push]
+	default = upstream
+[alias]
+	hist = log --graph --decorate --oneline --all
+[core]
+	excludesfile = /home/immartynov/.gitignore_global

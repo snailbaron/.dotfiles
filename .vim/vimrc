@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'PProvost/vim-ps1'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
@@ -36,7 +36,10 @@ set encoding=utf-8
 
 set number
 set hlsearch
+
+" Enable mouse support, and make it play nice with tmux
 set mouse=a
+set ttymouse=xterm2
 
 set timeoutlen=0 ttimeoutlen=0
 

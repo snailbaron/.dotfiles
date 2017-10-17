@@ -146,8 +146,9 @@ function! s:CanMove(direction)
     return success
 endfunction
 
-function! s:IsPositive(direction)
-    return a:direction == 'l' || a:direction == 'j'
+function! s:Sign(direction)
+    let mapping = {'h': '-', 'j': '+', 'k': '-', 'l': '+'}
+    return mapping[a:direction]
 endfunction
 
 function! s:IsFirstBuffer(orientation)
@@ -178,14 +179,23 @@ endfunction
 function! s:TmuxResize(direction)
     let orientation = s:Orientation(a:direction)
     let step = s:Step(orientation)
-    if s:IsLastBuffer(orientation) && (s:IsLastTmuxPane(orientation) || s:IsFirstBuffer(orientation))
-        silent execute '!tmux resize-pane -' . s:TmuxDirection(a:direction) . ' ' . step
+    let lastBuffer = s:IsLastBuffer(orientation)
+    let lastTmuxPane = s:IsLastTmuxPane(orientation)
+    let firstBuffer = s:IsFirstBuffer(orientation)
+    if lastBuffer && (!s:IsLastTmuxPane(orientation) || s:IsFirstBuffer(orientation))
+        "silent! execute '!tmux resize-pane -' . s:TmuxDirection(a:direction) . ' ' . step
+        silent call system('tmux resize-pane -' . s:TmuxDirection(a:direction) . ' ' . step)
+        "call job_start('tmux resize-pane -' . s:TmuxDirection(a:direction) . ' ' . step)
+        "redraw!
     else
-        let sign = s:IsPositive(a:direction) ? '+' : '-'
         let prefix = orientation == 'h' ? 'vertical ' : ''
-        execute prefix . 'resize ' . sign . step
+        let direction = a:direction
+        if lastBuffer
+            let direction = s:Inverse(direction)
+        endif
+        execute prefix . 'resize ' . s:Sign(direction) . step
     endif
-    redraw!
+    "redraw!
 endfunction
 
 command! TmuxResizeLeft call s:TmuxResize('h')

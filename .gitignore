@@ -7,6 +7,8 @@
 !/.config/tint2/
 !/.subversion/
 !/.vim/
+/.vim/plugged
+/.vim/autoload
 !/.tmux/plugins/tpm/
 
 # Configuration files
@@ -15,3 +17,4 @@
 !/.gitignore
 !/.gitignore_global
 !/.tmux.conf
+

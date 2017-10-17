@@ -119,106 +119,44 @@ endfunction
 let g:tmux_resize_vertical_step = 3
 let g:tmux_resize_horizontal_step = 5
 
-function! s:Back(orientation)
-    if a:orientation == 'h'
-        return 'h'
-    elseif a:orientation == 'v'
-        return 'k'
-    endif
-endfunction
-
-function! s:Forward(orientation)
-    if a:orientation == 'h'
-        return 'l'
-    elseif a:orientation == 'v'
-        return 'j'
-    endif
-endfunction
-
-function! s:Orientation(direction)
-    let orientation_mapping = {'h': 'h', 'j': 'v', 'k': 'v', 'l': 'h'}
-    return orientation_mapping[a:direction]
-endfunction
-
-function! s:Step(orientation)
-    if a:orientation == 'h'
-        return g:tmux_resize_horizontal_step
-    elseif a:orientation == 'v'
-        return g:tmux_resize_vertical_step
-    endif
-endfunction
-
-function! s:Inverse(direction)
-    let inverse_directions = {'h': 'l', 'j': 'k', 'k': 'j', 'l': 'h'}
-    return inverse_directions[a:direction]
-endfunction
-
 function! s:CanMove(direction)
     let nr = winnr()
     execute 'wincmd ' . a:direction
     let success = (nr != winnr())
     if success
-        execute 'wincmd ' . s:Inverse(a:direction)
+        execute nr . 'wincmd w'
     endif
     return success
 endfunction
 
-function! s:Sign(direction)
-    let mapping = {'h': '-', 'j': '+', 'k': '-', 'l': '+'}
-    return mapping[a:direction]
-endfunction
-
-function! s:IsFirstBuffer(orientation)
-    return !s:CanMove(s:Back(a:orientation))
-endfunction
-
-function! s:IsLastBuffer(orientation)
-    return !s:CanMove(s:Forward(a:orientation))
-endfunction
-
-function! s:TmuxDirection(direction)
-    let mapping = {'h': 'L', 'j': 'D', 'k': 'U', 'l': 'R'}
-    return mapping[a:direction]
-endfunction
-
-function! s:IsLastTmuxPane(orientation)
-    if a:orientation == 'h'
+function! s:IsLastTmuxPane(forwardDirection)
+    if a:forwardDirection == 'l'
         let pane_right = system("tmux display -p '#{pane_right}'")
         let window_width = system("tmux display -p '#{window_width}'")
         return pane_right + 1 == window_width
-    elseif a:orientation == 'v'
+    elseif a:forwardDirection == 'j'
         let pane_bottom = system("tmux display -p '#{pane_bottom}'")
         let window_height = system("tmux display -p '#{window_height}'")
         return pane_bottom + 1 == window_height
     endif
 endfunction
 
-function! s:TmuxResize(direction)
-    let orientation = s:Orientation(a:direction)
-    let step = s:Step(orientation)
-    let lastBuffer = s:IsLastBuffer(orientation)
-    let lastTmuxPane = s:IsLastTmuxPane(orientation)
-    let firstBuffer = s:IsFirstBuffer(orientation)
-    if lastBuffer && (!s:IsLastTmuxPane(orientation) || s:IsFirstBuffer(orientation))
-        "silent! execute '!tmux resize-pane -' . s:TmuxDirection(a:direction) . ' ' . step
-        silent call system('tmux resize-pane -' . s:TmuxDirection(a:direction) . ' ' . step)
-        "call job_start('tmux resize-pane -' . s:TmuxDirection(a:direction) . ' ' . step)
+function! s:TmuxResize(positive, tmuxDirection, step, prefix, forwardDirection, backDirection)
+    let lastWindow = !s:CanMove(a:forwardDirection)
+    if lastWindow && (!s:CanMove(a:backDirection) || !s:IsLastTmuxPane(a:forwardDirection))
+        silent call system('tmux resize-pane -' . a:tmuxDirection . ' ' . a:step)
         "redraw!
     else
-        let prefix = orientation == 'h' ? 'vertical ' : ''
-        let direction = a:direction
-        if lastBuffer
-            let direction = s:Inverse(direction)
-        endif
-        execute prefix . 'resize ' . s:Sign(direction) . step
+        let sign = xor(a:positive, lastWindow) ? '+' : '-'
+        execute a:prefix . 'resize ' . sign . a:step
     endif
     "redraw!
 endfunction
 
-command! TmuxResizeLeft call s:TmuxResize('h')
-command! TmuxResizeRight call s:TmuxResize('l')
-command! TmuxResizeDown call s:TmuxResize('j')
-command! TmuxResizeUp call s:TmuxResize('k')
+command! TmuxResizeLeft call s:TmuxResize(0, 'L', g:tmux_resize_horizontal_step, 'vertical ', 'l', 'h')
+command! TmuxResizeRight call s:TmuxResize(1, 'R', g:tmux_resize_horizontal_step, 'vertical ', 'l', 'h')
+command! TmuxResizeDown call s:TmuxResize(1, 'D', g:tmux_resize_vertical_step, '', 'j', 'k')
+command! TmuxResizeUp call s:TmuxResize(0, 'U', g:tmux_resize_vertical_step, '', 'j', 'k')
 
 nnoremap <M-h> :TmuxResizeLeft<CR>
 nnoremap <M-l> :TmuxResizeRight<CR>

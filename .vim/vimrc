@@ -122,14 +122,16 @@ endfunction
 let g:tmux_resize_vertical_step = 3
 let g:tmux_resize_horizontal_step = 5
 
-function! s:CanMove(direction)
-    let nr = winnr()
-    execute 'wincmd ' . a:direction
-    let success = (nr != winnr())
-    if success
-        execute nr . 'wincmd w'
+function! s:CanMove(vertical, screenpos)
+    if a:vertical
+        let windowTop = a:screenpos - winline() + 1
+        let windowBottom = windowTop + winheight(0) + 2
+        return [windowTop > 1, windowBottom < &lines]
+    else
+        let windowLeft = a:screenpos - wincol() + 1
+        let windowRight = windowLeft + winwidth(0) - 1
+        return [windowLeft > 1, windowRight < &columns]
     endif
-    return success
 endfunction
 
 function! s:IsLastTmuxPane(forwardDirection)
@@ -144,29 +146,36 @@ function! s:IsLastTmuxPane(forwardDirection)
     endif
 endfunction
 
-function! s:TmuxResize(positive, tmuxDirection, step, prefix, forwardDirection, backDirection)
-    let lastWindow = !s:CanMove(a:forwardDirection)
-    if lastWindow && (!s:CanMove(a:backDirection) || !s:IsLastTmuxPane(a:forwardDirection))
+function! TmuxResize(positive, vertical, tmuxDirection, step, forwardDirection, backDirection)
+    let position = [screencol(), screenrow()]
+    let canMove = s:CanMove(a:vertical, position[a:vertical])
+    let firstWindow = !canMove[0]
+    let lastWindow = !canMove[1]
+    if lastWindow && (firstWindow || !s:IsLastTmuxPane(a:forwardDirection))
         silent call system('tmux resize-pane -' . a:tmuxDirection . ' ' . a:step)
         "redraw!
     else
         let sign = xor(a:positive, lastWindow) ? '+' : '-'
-        execute a:prefix . 'resize ' . sign . a:step
+        let prefix = a:vertical ? '' : 'vertical '
+        execute prefix . 'resize ' . sign . a:step
     endif
     "redraw!
 endfunction
 
-command! TmuxResizeLeft call s:TmuxResize(0, 'L', g:tmux_resize_horizontal_step, 'vertical ', 'l', 'h')
-command! TmuxResizeRight call s:TmuxResize(1, 'R', g:tmux_resize_horizontal_step, 'vertical ', 'l', 'h')
-command! TmuxResizeDown call s:TmuxResize(1, 'D', g:tmux_resize_vertical_step, '', 'j', 'k')
-command! TmuxResizeUp call s:TmuxResize(0, 'U', g:tmux_resize_vertical_step, '', 'j', 'k')
+command! TmuxResizeLeft :call TmuxResize(0, 0, 'L', g:tmux_resize_horizontal_step, 'l', 'h')
+command! TmuxResizeRight :call TmuxResize(1, 0, 'R', g:tmux_resize_horizontal_step, 'l', 'h')
+command! TmuxResizeDown :call TmuxResize(1, 1, 'D', g:tmux_resize_vertical_step, 'j', 'k')
+command! TmuxResizeUp :call TmuxResize(0, 1, 'U', g:tmux_resize_vertical_step, 'j', 'k')
 
-nnoremap <M-h> :TmuxResizeLeft<CR>
-nnoremap <M-l> :TmuxResizeRight<CR>
-nnoremap <M-j> :TmuxResizeDown<CR>
-nnoremap <M-k> :TmuxResizeUp<CR>
+nnoremap <silent> <M-h> :TmuxResizeLeft<CR>
+nnoremap <silent> <M-l> :TmuxResizeRight<CR>
+nnoremap <silent> <M-j> :TmuxResizeDown<CR>
+nnoremap <silent> <M-k> :TmuxResizeUp<CR>
 
-nnoremap <Esc>h :TmuxResizeLeft<CR>
-nnoremap <Esc>l :TmuxResizeRight<CR>
-nnoremap <Esc>j :TmuxResizeDown<CR>
-nnoremap <Esc>k :TmuxResizeUp<CR>
+nnoremap <silent> <Esc>h :TmuxResizeLeft<CR>
+nnoremap <silent> <Esc>l :TmuxResizeRight<CR>
+nnoremap <silent> <Esc>j :TmuxResizeDown<CR>
+nnoremap <silent> <Esc>k :TmuxResizeUp<CR>
+
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'

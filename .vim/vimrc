@@ -6,13 +6,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Conque-GDB'
 
 call plug#end()
+
+filetype plugin indent off
 
 syntax enable
 
@@ -36,6 +36,9 @@ set encoding=utf-8
 
 set number
 set hlsearch
+
+set splitright
+set splitbelow
 
 " Enable mouse support, and make it play nice with tmux
 set mouse=a

@@ -151,7 +151,8 @@ function! TmuxResize(positive, vertical, tmuxDirection, step, forwardDirection, 
     let canMove = s:CanMove(a:vertical, position[a:vertical])
     let firstWindow = !canMove[0]
     let lastWindow = !canMove[1]
-    if lastWindow && (firstWindow || !s:IsLastTmuxPane(a:forwardDirection))
+
+    if $TMUX != '' && lastWindow && (firstWindow || !s:IsLastTmuxPane(a:forwardDirection))
         silent call system('tmux resize-pane -' . a:tmuxDirection . ' ' . a:step)
         "redraw!
     else

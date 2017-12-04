@@ -8,17 +8,17 @@
     <focusNew>yes</focusNew>
     <!-- always try to focus new windows when they appear. other rules do
        apply -->
-    <followMouse>yes</followMouse>
+    <followMouse>no</followMouse>
     <!-- move focus to a window when you move the mouse into it -->
     <focusLast>yes</focusLast>
     <!-- focus the last used window when changing desktops, instead of the one
        under the mouse pointer. when followMouse is enabled -->
-    <underMouse>no</underMouse>
+    <underMouse>yes</underMouse>
     <!-- move focus under the mouse, even when the mouse is not moving -->
     <focusDelay>200</focusDelay>
     <!-- when followMouse is enabled, the mouse must be inside the window for
        this many milliseconds (1000 = 1 sec) before moving focus to it -->
-    <raiseOnFocus>no</raiseOnFocus>
+    <raiseOnFocus>yes</raiseOnFocus>
     <!-- when followMouse is enabled, and a window is given focus by moving the
        mouse into it, also raise the window -->
   </focus>
@@ -320,13 +320,11 @@
         <command>kfmclient openProfile filemanagement</command>
       </action>
     </keybind>
-
     <keybind key="A-F2">
       <action name="Execute">
         <command>dmenu_run -fn "-xos4-terminus-medium-r-*-*-18-*"</command>
       </action>
     </keybind>
-
     <!-- Switch to next window, fixed order -->
     <keybind key="F3">
       <action name="NextWindow">
@@ -334,7 +332,6 @@
         <linear>yes</linear>
       </action>
     </keybind>
-
     <!-- Switch to previous window, fixed order -->
     <keybind key="F2">
       <action name="PreviousWindow">
@@ -342,26 +339,26 @@
         <linear>yes</linear>
       </action>
     </keybind>
-
     <!-- Switch to previous active window -->
     <keybind key="F1">
       <action name="NextWindow">
         <interactive>no</interactive>
       </action>
     </keybind>
-
     <!-- Close currently active window -->
     <keybind key="F4">
       <action name="Close"/>
     </keybind>
-
     <!--
       Mappings for frequently used applications
     -->
-    <keybind key="F11">
+    <keybind key="F9">
       <action name="Execute">
         <command>Telegram</command>
       </action>
+    </keybind>
+    <keybind key="F8">
+      <action name="ToggleMaximize"/>
     </keybind>
   </keyboard>
   <mouse>

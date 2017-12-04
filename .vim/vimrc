@@ -1,8 +1,11 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'PProvost/vim-ps1'
-"Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'mikewest/vimroom'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -11,23 +14,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Conque-GDB'
 
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'zchee/deoplete-clang'
-Plug 'Shougo/neoinclude.vim'
-Plug 'ludovicchabant/vim-gutentags'
-
 call plug#end()
-
-let g:deoplete#enable_at_startup = 1
-
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.4/lib/libclang-3.4.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-3.4/lib/clang'
-let g:deoplete#tag#cache_limit_size = 50000000
-let g:deoplete#sources#clang#flags = [
-    \ "-Wall"
-    \ ]
 
 filetype indent off
 filetype plugin on
@@ -113,6 +100,7 @@ highlight CursorLine cterm=NONE ctermbg=black guibg=black
 
 let g:netrw_banner = 0
 let g:netrw_sort_sequence = "[\/]$"
+let g:netrw_liststyle = 3
 
 "
 " YouCompleteMe
@@ -138,7 +126,7 @@ let g:ycm_confirm_extra_conf = 0
 highlight YcmErrorSection ctermbg=5
 
 " Mappings for GoTo commands
-nmap <F12> :YcmCompleter GoTo<CR>
+nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <C-S-g> :YcmCompleter GoToInclude<CR>
 
 "
@@ -216,6 +204,9 @@ nnoremap <silent> <Esc>h :TmuxResizeLeft<CR>
 nnoremap <silent> <Esc>l :TmuxResizeRight<CR>
 nnoremap <silent> <Esc>j :TmuxResizeDown<CR>
 nnoremap <silent> <Esc>k :TmuxResizeUp<CR>
+
+autocmd BufWinEnter,WinEnter term://* startinsert
+autocmd BufLeave term://* stopinsert
 
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'

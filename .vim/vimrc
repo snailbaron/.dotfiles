@@ -94,6 +94,12 @@ highlight ColorColumn ctermbg=magenta
 set cursorline
 highlight CursorLine cterm=NONE ctermbg=black guibg=black
 
+" GNU Global related settings
+let GtagsCscope_Auto_Load = 1
+let GtagsCscope_Auto_Map = 1
+let GtagsCscope_Quiet = 1
+set cscopetag
+
 "
 " netrw
 "
@@ -101,6 +107,12 @@ highlight CursorLine cterm=NONE ctermbg=black guibg=black
 let g:netrw_banner = 0
 let g:netrw_sort_sequence = "[\/]$"
 let g:netrw_liststyle = 3
+
+"
+" Termdebug mappings
+"
+nmap <F7> :Step<CR>
+nmap <F8> :Over<CR>
 
 "
 " YouCompleteMe
@@ -141,6 +153,24 @@ function! OnBufferOpen()
         match ExtraWhitespace /\s\+$/
     endif
 endfunction
+
+"
+" vim-tmux-navigator mappings
+"
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+
+tnoremap <silent> <C-h> <C-w>:TmuxNavigateLeft<cr>
+tnoremap <silent> <C-j> <C-w>:TmuxNavigateDown<cr>
+tnoremap <silent> <C-k> <C-w>:TmuxNavigateUp<cr>
+tnoremap <silent> <C-l> <C-w>:TmuxNavigateRight<cr>
+tnoremap <silent> <C-\> <C-w>:TmuxNavigatePrevious<cr>
 
 "
 " Seamless resize in Vim/tmux
@@ -204,6 +234,16 @@ nnoremap <silent> <Esc>h :TmuxResizeLeft<CR>
 nnoremap <silent> <Esc>l :TmuxResizeRight<CR>
 nnoremap <silent> <Esc>j :TmuxResizeDown<CR>
 nnoremap <silent> <Esc>k :TmuxResizeUp<CR>
+
+tnoremap <silent> <M-h> <C-w>:TmuxResizeLeft<CR>
+tnoremap <silent> <M-l> <C-w>:TmuxResizeRight<CR>
+tnoremap <silent> <M-j> <C-w>:TmuxResizeDown<CR>
+tnoremap <silent> <M-k> <C-w>:TmuxResizeUp<CR>
+
+tnoremap <silent> <Esc>h <C-w>:TmuxResizeLeft<CR>
+tnoremap <silent> <Esc>l <C-w>:TmuxResizeRight<CR>
+tnoremap <silent> <Esc>j <C-w>:TmuxResizeDown<CR>
+tnoremap <silent> <Esc>k <C-w>:TmuxResizeUp<CR>
 
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert

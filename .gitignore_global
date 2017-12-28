@@ -1,8 +1,13 @@
 *.swp
 .netrwhist
 .ycm_extra_conf.py
+ycm_extra_conf*.py
 .clang
 Session.vim
 tags
 tags.lock
 tags.temp
+GPATH
+GRTAGS
+GSYMS
+GTAGS

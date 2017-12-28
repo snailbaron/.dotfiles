@@ -352,12 +352,12 @@
     <!--
       Mappings for frequently used applications
     -->
-    <keybind key="F9">
+    <keybind key="Pause">
       <action name="Execute">
-        <command>Telegram</command>
+        <command>telegram</command>
       </action>
     </keybind>
-    <keybind key="F8">
+    <keybind key="F5">
       <action name="ToggleMaximize"/>
     </keybind>
   </keyboard>

@@ -325,30 +325,6 @@
         <command>dmenu_run -fn "-xos4-terminus-medium-r-*-*-18-*"</command>
       </action>
     </keybind>
-    <!-- Switch to next window, fixed order -->
-    <keybind key="F3">
-      <action name="NextWindow">
-        <interactive>no</interactive>
-        <linear>yes</linear>
-      </action>
-    </keybind>
-    <!-- Switch to previous window, fixed order -->
-    <keybind key="F2">
-      <action name="PreviousWindow">
-        <interactive>no</interactive>
-        <linear>yes</linear>
-      </action>
-    </keybind>
-    <!-- Switch to previous active window -->
-    <keybind key="F1">
-      <action name="NextWindow">
-        <interactive>no</interactive>
-      </action>
-    </keybind>
-    <!-- Close currently active window -->
-    <keybind key="F4">
-      <action name="Close"/>
-    </keybind>
     <!--
       Mappings for frequently used applications
     -->
@@ -357,8 +333,9 @@
         <command>telegram</command>
       </action>
     </keybind>
-    <keybind key="F5">
-      <action name="ToggleMaximize"/>
+
+    <keybind key="A-Return">
+      <action name="ToggleMaximize" />
     </keybind>
   </keyboard>
   <mouse>

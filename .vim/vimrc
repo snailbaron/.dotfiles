@@ -1,8 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'PProvost/vim-ps1'
-Plug 'Valloric/YouCompleteMe',
-    \ {'do': 'python2 install.py --clang-completer --system-libclang'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ludovicchabant/vim-gutentags'
@@ -14,6 +12,11 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Conque-GDB'
+
+if v:version > 704 || v:version == 704 && has("patch1578")
+    Plug 'Valloric/YouCompleteMe',
+        \ {'do': 'python2 install.py --clang-completer --system-libclang'}
+endif
 
 call plug#end()
 
@@ -170,11 +173,13 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
-tnoremap <silent> <C-h> <C-w>:TmuxNavigateLeft<cr>
-tnoremap <silent> <C-j> <C-w>:TmuxNavigateDown<cr>
-tnoremap <silent> <C-k> <C-w>:TmuxNavigateUp<cr>
-tnoremap <silent> <C-l> <C-w>:TmuxNavigateRight<cr>
-tnoremap <silent> <C-\> <C-w>:TmuxNavigatePrevious<cr>
+if v:version >= 800
+    tnoremap <silent> <C-h> <C-w>:TmuxNavigateLeft<cr>
+    tnoremap <silent> <C-j> <C-w>:TmuxNavigateDown<cr>
+    tnoremap <silent> <C-k> <C-w>:TmuxNavigateUp<cr>
+    tnoremap <silent> <C-l> <C-w>:TmuxNavigateRight<cr>
+    tnoremap <silent> <C-\> <C-w>:TmuxNavigatePrevious<cr>
+endif
 
 "
 " Seamless resize in Vim/tmux
@@ -239,15 +244,17 @@ nnoremap <silent> <Esc>l :TmuxResizeRight<CR>
 nnoremap <silent> <Esc>j :TmuxResizeDown<CR>
 nnoremap <silent> <Esc>k :TmuxResizeUp<CR>
 
-tnoremap <silent> <M-h> <C-w>:TmuxResizeLeft<CR>
-tnoremap <silent> <M-l> <C-w>:TmuxResizeRight<CR>
-tnoremap <silent> <M-j> <C-w>:TmuxResizeDown<CR>
-tnoremap <silent> <M-k> <C-w>:TmuxResizeUp<CR>
+if v:version >= 800
+    tnoremap <silent> <M-h> <C-w>:TmuxResizeLeft<CR>
+    tnoremap <silent> <M-l> <C-w>:TmuxResizeRight<CR>
+    tnoremap <silent> <M-j> <C-w>:TmuxResizeDown<CR>
+    tnoremap <silent> <M-k> <C-w>:TmuxResizeUp<CR>
 
-tnoremap <silent> <Esc>h <C-w>:TmuxResizeLeft<CR>
-tnoremap <silent> <Esc>l <C-w>:TmuxResizeRight<CR>
-tnoremap <silent> <Esc>j <C-w>:TmuxResizeDown<CR>
-tnoremap <silent> <Esc>k <C-w>:TmuxResizeUp<CR>
+    tnoremap <silent> <Esc>h <C-w>:TmuxResizeLeft<CR>
+    tnoremap <silent> <Esc>l <C-w>:TmuxResizeRight<CR>
+    tnoremap <silent> <Esc>j <C-w>:TmuxResizeDown<CR>
+    tnoremap <silent> <Esc>k <C-w>:TmuxResizeUp<CR>
+endif
 
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert

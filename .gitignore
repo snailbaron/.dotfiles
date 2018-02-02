@@ -16,6 +16,7 @@
 !/.gitconfig
 !/.gitignore
 !/.gitignore_global
+!/.inputrc
 !/.tmux.conf
 !/.xprofile
 

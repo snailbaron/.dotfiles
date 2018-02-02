@@ -330,7 +330,7 @@
     -->
     <keybind key="Pause">
       <action name="Execute">
-        <command>telegram</command>
+        <command>telegram-desktop</command>
       </action>
     </keybind>
 

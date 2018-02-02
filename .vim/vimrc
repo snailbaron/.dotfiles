@@ -1,7 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'PProvost/vim-ps1'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe',
+    \ {'do': 'python2 install.py --clang-completer --system-libclang'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ludovicchabant/vim-gutentags'
@@ -111,8 +112,11 @@ let g:netrw_liststyle = 3
 "
 " Termdebug mappings
 "
-nmap <F7> :Step<CR>
-nmap <F8> :Over<CR>
+nmap <silent> <F7> :Step<CR>
+nmap <silent> <F8> :Over<CR>
+nmap <silent> <F9> :Break<CR>
+nmap <silent> <F10> :Delete<CR>
+nmap <silent> <S-F7> :Finish<CR>
 
 "
 " YouCompleteMe

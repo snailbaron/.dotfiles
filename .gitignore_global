@@ -1,7 +1,7 @@
 *.swp
 .netrwhist
 .ycm_extra_conf.py
-ycm_extra_conf*.py
+ycm_*.py
 .clang
 Session.vim
 tags

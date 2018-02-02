@@ -3,5 +3,5 @@ pcmanfm --desktop &
 
 setxkbmap -layout us,ru -option grp:alt_shift_toggle
 
-telegram &
+telegram-desktop &
 pidgin &

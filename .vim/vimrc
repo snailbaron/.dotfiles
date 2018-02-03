@@ -96,6 +96,9 @@ inoremap <S-Tab> <C-d>
 " Process new buffer creation
 autocmd BufNewFile,BufRead * call OnBufferOpen()
 
+autocmd FileType html set tabstop=2
+autocmd FileType html set shiftwidth=2
+
 """ Colors and highlighting
 
 " Color column 81 with light gray
@@ -181,7 +184,7 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
-if v:version >= 800
+if v:version > 800 || v:version == 800 && has("patch587")
     tnoremap <silent> <C-h> <C-w>:TmuxNavigateLeft<cr>
     tnoremap <silent> <C-j> <C-w>:TmuxNavigateDown<cr>
     tnoremap <silent> <C-k> <C-w>:TmuxNavigateUp<cr>
@@ -252,7 +255,7 @@ nnoremap <silent> <Esc>l :TmuxResizeRight<CR>
 nnoremap <silent> <Esc>j :TmuxResizeDown<CR>
 nnoremap <silent> <Esc>k :TmuxResizeUp<CR>
 
-if v:version >= 800
+if v:version > 800 || v:version == 800 && has("patch587")
     tnoremap <silent> <M-h> <C-w>:TmuxResizeLeft<CR>
     tnoremap <silent> <M-l> <C-w>:TmuxResizeRight<CR>
     tnoremap <silent> <M-j> <C-w>:TmuxResizeDown<CR>

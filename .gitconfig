@@ -9,7 +9,5 @@
 	hist = log --graph --decorate --oneline --all
 [core]
 	excludesfile = /home/immartynov/.gitignore_global
-	eol = lf
-	autocrlf = false
 [color "diff"]
 	whitespace = red reverse

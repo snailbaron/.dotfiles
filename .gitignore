@@ -5,7 +5,6 @@
 !/.config/openbox/
 !/.config/sakura/
 !/.config/tint2/
-!/.subversion/
 !/.vim/
 /.vim/plugged
 /.vim/autoload
@@ -17,6 +16,7 @@
 !/.gitignore
 !/.gitignore_global
 !/.inputrc
+!/.subversion/config
 !/.tmux.conf
 !/.xprofile
 

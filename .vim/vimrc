@@ -102,7 +102,7 @@ autocmd FileType html set shiftwidth=2
 
 " Color column 81 with light gray
 set colorcolumn=81
-highlight ColorColumn ctermbg=magenta
+highlight ColorColumn ctermbg=DarkGray
 
 " Indicate current line with deep black
 set cursorline

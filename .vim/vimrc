@@ -8,10 +8,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-plug'
 
-Plug 'PProvost/vim-ps1'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'

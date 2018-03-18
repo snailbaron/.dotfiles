@@ -9,6 +9,7 @@
 /.vim/plugged
 /.vim/autoload
 !/.tmux/plugins/tpm/
+!/.themes/
 
 # Configuration files
 !/.colordiffrc

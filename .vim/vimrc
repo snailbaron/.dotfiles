@@ -17,6 +17,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Conque-GDB'
+Plug 'majutsushi/tagbar'
 
 if v:version > 704 || v:version == 704 && has("patch1578")
     Plug 'Valloric/YouCompleteMe',
@@ -168,6 +169,11 @@ function! OnBufferOpen()
         match ExtraWhitespace /\s\+$/
     endif
 endfunction
+
+"
+" tagbar mappings
+"
+nnoremap <F8> :TagbarToggle<CR>
 
 "
 " vim-tmux-navigator mappings

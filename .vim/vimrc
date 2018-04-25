@@ -156,6 +156,7 @@ highlight YcmErrorSection ctermbg=5
 " Mappings for GoTo commands
 nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <C-S-g> :YcmCompleter GoToInclude<CR>
+nmap <leader>t :YcmCompleter GetType<CR>
 
 "
 " Function to run each time when opening a new buffer

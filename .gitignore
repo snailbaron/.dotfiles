@@ -1,17 +1,19 @@
-# Ignore everything by default; only track necessary files
 /*
 
-# Configuration directories
+!/.config/
+/.config/*
 !/.config/openbox/
 !/.config/sakura/
 !/.config/tint2/
+!/.config/rofi/
+
 !/.vim/
 /.vim/plugged
 /.vim/autoload
+
 !/.tmux/plugins/tpm/
 !/.themes/
 
-# Configuration files
 !/.colordiffrc
 !/.gitconfig
 !/.gitignore

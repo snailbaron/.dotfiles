@@ -10,6 +10,7 @@ Plug 'junegunn/vim-plug'
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -17,7 +18,6 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Conque-GDB'
-Plug 'majutsushi/tagbar'
 
 if v:version > 704 || v:version == 704 && has("patch1578")
     Plug 'Valloric/YouCompleteMe',
@@ -127,6 +127,7 @@ let g:netrw_liststyle = 3
 nmap <silent> <F7> :Step<CR>
 nmap <silent> <F8> :Over<CR>
 nmap <silent> <F9> :Break<CR>
+nmap <silent> <S-F9> :Delete<CR>
 nmap <silent> <F10> :Delete<CR>
 nmap <silent> <S-F7> :Finish<CR>
 

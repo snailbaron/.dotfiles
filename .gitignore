@@ -6,10 +6,12 @@
 !/.config/sakura/
 !/.config/tint2/
 !/.config/rofi/
+!/.config/systemd/
 
 !/.vim/
 /.vim/plugged
 /.vim/autoload
+/.vim/.netrwhist
 
 !/.tmux/plugins/tpm/
 !/.themes/

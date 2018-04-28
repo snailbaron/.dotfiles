@@ -3,9 +3,10 @@ xbindkeys
 setxkbmap -layout us,ru -option grp:alt_shift_toggle
 xset mouse 1 0
 
-nitrogen --restore &
-pcmanfm --desktop &
-
 tint2 &
 
-telegram || telegram-desktop &
+pcmanfm --desktop &
+systemctl --user start wallpaper.timer
+
+nm-applet &
+telegram-desktop &

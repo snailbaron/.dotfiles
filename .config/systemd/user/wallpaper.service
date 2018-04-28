@@ -1,0 +1,7 @@
+[Unit]
+Description=Change desktop wallpaper
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=%h/bin/set-random-wallpaper

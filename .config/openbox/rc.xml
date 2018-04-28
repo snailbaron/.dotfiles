@@ -325,14 +325,7 @@
         <command>rofi -show run</command>
       </action>
     </keybind>
-    <!--
-      Mappings for frequently used applications
-    -->
-    <keybind key="Pause">
-      <action name="Execute">
-        <command>telegram-desktop</command>
-      </action>
-    </keybind>
+
     <keybind key="A-Return">
       <action name="ToggleMaximize"/>
     </keybind>

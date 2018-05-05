@@ -94,8 +94,8 @@ inoremap <S-Tab> <C-d>
 " Process new buffer creation
 autocmd BufNewFile,BufRead * call OnBufferOpen()
 
-autocmd FileType html set tabstop=2
-autocmd FileType html set shiftwidth=2
+autocmd FileType html,xml set tabstop=2
+autocmd FileType html,xml set shiftwidth=2
 
 """ Colors and highlighting
 

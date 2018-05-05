@@ -3,17 +3,19 @@
 !/.config/
 /.config/*
 !/.config/openbox/
-!/.config/sakura/
-!/.config/tint2/
 !/.config/rofi/
+!/.config/sakura/
 !/.config/systemd/
+!/.config/tint2/
 
 !/.vim/
+/.vim/swap/
 /.vim/plugged
 /.vim/autoload
 /.vim/.netrwhist
 
 !/.tmux/plugins/tpm/
+
 !/.themes/
 
 !/.colordiffrc

@@ -11,6 +11,7 @@ Plug 'junegunn/vim-plug'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -34,7 +35,7 @@ syntax enable
 " Create highlight group for improper whitespace usage
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=5 guibg=red
 
-colorscheme desert
+colorscheme snailtemp
 
 set nobackup
 set writebackup
@@ -120,6 +121,9 @@ set cscopetag
 let g:netrw_banner = 0
 let g:netrw_sort_sequence = "[\/]$"
 let g:netrw_liststyle = 3
+
+" NERDTree
+nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
 "
 " Termdebug mappings

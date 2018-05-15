@@ -108,6 +108,8 @@ highlight ColorColumn ctermbg=DarkGray
 set cursorline
 highlight CursorLine cterm=NONE ctermbg=black guibg=black
 
+highlight Search cterm=NONE ctermbg=DarkBlue ctermfg=White
+
 " GNU Global related settings
 let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Auto_Map = 1

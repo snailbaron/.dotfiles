@@ -14,6 +14,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
@@ -108,8 +109,6 @@ highlight ColorColumn ctermbg=DarkGray
 set cursorline
 highlight CursorLine cterm=NONE ctermbg=black guibg=black
 
-highlight Search cterm=NONE ctermbg=DarkBlue ctermfg=White
-
 " GNU Global related settings
 let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Auto_Map = 1
@@ -127,15 +126,18 @@ let g:netrw_liststyle = 3
 " NERDTree
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
+" vim-dispatch
+nnoremap <silent> <F7> :Dispatch<CR>
+
 "
 " Termdebug mappings
 "
-nmap <silent> <F7> :Step<CR>
-nmap <silent> <F8> :Over<CR>
-nmap <silent> <F9> :Break<CR>
-nmap <silent> <S-F9> :Delete<CR>
-nmap <silent> <F10> :Delete<CR>
-nmap <silent> <S-F7> :Finish<CR>
+"nmap <silent> <F7> :Step<CR>
+"nmap <silent> <F8> :Over<CR>
+"nmap <silent> <F9> :Break<CR>
+"nmap <silent> <S-F9> :Delete<CR>
+"nmap <silent> <F10> :Delete<CR>
+"nmap <silent> <S-F7> :Finish<CR>
 
 "
 " YouCompleteMe

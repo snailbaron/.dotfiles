@@ -47,15 +47,15 @@ hi VisualNOS    cterm=bold,underline
 hi WarningMsg   ctermfg=1
 hi WildMenu     ctermfg=0 ctermbg=3
 
-hi PreProc      ctermfg=DarkGray
 hi Comment      ctermfg=DarkGreen
-hi Constant     ctermfg=LightCyan
+hi Constant     ctermfg=LightYellow
 hi Function     ctermfg=Green
-hi String       ctermfg=LightYellow
-hi Normal       ctermfg=White
-hi Visual       ctermbg=DarkBlue
-hi Search       cterm=NONE ctermfg=White ctermbg=Brown
 hi IncSearch    ctermbg=DarkGray
-hi Type         ctermfg=Blue
+hi Normal       ctermfg=White
+hi PreProc      ctermfg=DarkGray
+hi Search       cterm=NONE ctermfg=White ctermbg=Brown
 hi Statement    ctermfg=Blue
+hi String       ctermfg=LightYellow
+hi Type         ctermfg=Blue
 hi VertSplit    cterm=NONE ctermfg=DarkGray
+hi Visual       ctermbg=DarkBlue

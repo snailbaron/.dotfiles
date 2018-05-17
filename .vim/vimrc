@@ -10,6 +10,7 @@ Plug 'junegunn/vim-plug'
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'gerw/vim-HiLinkTrace'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'tmux-plugins/vim-tmux'

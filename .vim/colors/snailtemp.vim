@@ -29,7 +29,6 @@ hi Error        cterm=bold ctermfg=7 ctermbg=1
 hi ErrorMsg     cterm=bold ctermfg=7 ctermbg=1
 hi FoldColumn   ctermfg=darkgrey ctermbg=NONE
 hi Folded       ctermfg=darkgrey ctermbg=NONE
-hi Identifier   ctermfg=6
 hi Ignore       cterm=bold ctermfg=7
 hi Ignore       ctermfg=darkgrey
 hi LineNr       ctermfg=3
@@ -49,7 +48,6 @@ hi WildMenu     ctermfg=0 ctermbg=3
 
 hi Comment      ctermfg=DarkGreen
 hi Constant     ctermfg=LightYellow
-hi Function     ctermfg=Green
 hi IncSearch    ctermbg=DarkGray
 hi Normal       ctermfg=White
 hi PreProc      ctermfg=DarkGray
@@ -59,3 +57,7 @@ hi String       ctermfg=LightYellow
 hi Type         ctermfg=Blue
 hi VertSplit    cterm=NONE ctermfg=DarkGray
 hi Visual       ctermbg=DarkBlue
+hi Identifier   cterm=NONE ctermfg=White
+hi Function     ctermfg=LightGreen
+
+hi gitcommitSummary cterm=bold

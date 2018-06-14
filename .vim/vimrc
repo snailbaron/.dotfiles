@@ -291,3 +291,7 @@ autocmd BufLeave term://* stopinsert
 
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

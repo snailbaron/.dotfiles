@@ -37,7 +37,7 @@ syntax enable
 " Create highlight group for improper whitespace usage
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=5 guibg=red
 
-colorscheme snailtemp
+colorscheme snailbaron
 
 set nobackup
 set writebackup

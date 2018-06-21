@@ -17,6 +17,7 @@
 !/.tmux/plugins/tpm/
 
 !/.themes/
+!/.backup/
 
 !/.colordiffrc
 !/.gitignore

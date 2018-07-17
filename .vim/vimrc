@@ -108,7 +108,7 @@ highlight ColorColumn ctermbg=DarkGray
 
 " Indicate current line with deep black
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=black guibg=black
+highlight CursorLine cterm=NONE ctermbg=Black
 
 " GNU Global related settings
 let GtagsCscope_Auto_Load = 1

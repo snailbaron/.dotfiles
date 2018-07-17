@@ -8,6 +8,8 @@
 !/.config/systemd/
 !/.config/tint2/
 
+!/scripts/
+
 !/.vim/
 /.vim/swap/
 /.vim/plugged

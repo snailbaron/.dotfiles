@@ -12,6 +12,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'gerw/vim-HiLinkTrace'
 Plug 'majutsushi/tagbar'
+Plug 'pboettch/vim-cmake-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
@@ -21,11 +22,17 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Conque-GDB'
+Plug 'zchee/vim-flatbuffers'
 
-if v:version > 704 || v:version == 704 && has("patch1578")
-    Plug 'Valloric/YouCompleteMe',
-        \ {'do': 'python2 install.py --clang-completer --system-libclang'}
-endif
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'pdavydov108/vim-lsp-cquery'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+"if v:version > 704 || v:version == 704 && has("patch1578")
+"    Plug 'Valloric/YouCompleteMe' ", {'do': 'python2 install.py --clang-completer --system-libclang'}
+"endif
 
 call plug#end()
 
@@ -83,7 +90,7 @@ set mouse=a
 set ttymouse=xterm2
 
 "set timeoutlen=0 ttimeoutlen=0
-set ttimeoutlen=0
+set timeoutlen=1000 ttimeoutlen=0
 
 " English, do you speak it?
 if has('win32')
@@ -97,8 +104,7 @@ inoremap <S-Tab> <C-d>
 " Process new buffer creation
 autocmd BufNewFile,BufRead * call OnBufferOpen()
 
-autocmd FileType html,xml set tabstop=2
-autocmd FileType html,xml set shiftwidth=2
+autocmd FileType html,xml,fbs setlocal tabstop=2 shiftwidth=2
 
 """ Colors and highlighting
 
@@ -124,11 +130,36 @@ let g:netrw_banner = 0
 let g:netrw_sort_sequence = "[\/]$"
 let g:netrw_liststyle = 3
 
+"
 " NERDTree
+"
+
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize = 61
+
+let g:NERDTreeMapJumpNextSibling = ''
+
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " vim-dispatch
 nnoremap <silent> <F7> :Dispatch<CR>
+
+" vim-lsp
+
+if executable('cquery')
+   autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'cquery',
+      \ 'cmd': {server_info->['cquery']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery/cache' },
+      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
+endif
+
+nmap <silent> <leader>g :LspDefinition<CR>
 
 "
 " Termdebug mappings
@@ -143,21 +174,15 @@ nnoremap <silent> <F7> :Dispatch<CR>
 "
 " YouCompleteMe
 "
-" YCM options are documented here:
-"     https://github.com/Valloric/YouCompleteMe#options
-"
 
-" Fallback global YCM configuration file
+"let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_global_ycm_extra_conf = '~/.global_ycm_extra_conf.py'
-
-let g:ycm_show_diagnostics_ui = 1
-
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-
-let g:ycm_warning_symbol = '~>'
+"let g:ycm_key_list_previous_completion = ['<Up>']
+"let g:ycm_key_list_select_completion = ['<Down>']
+"let g:ycm_server_log_level = 'debug'
+"let g:ycm_server_use_vim_stdout = 1
+"let g:ycm_show_diagnostics_ui = 1
+"let g:ycm_warning_symbol = '~>'
 
 " Do not ask if it is safe to load a configuration file. WARNING: allows
 " execution of malicious .ycm_extra_conf.py.
@@ -167,11 +192,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Highlight YCM errors with less acid color
 highlight YcmErrorSection ctermbg=5
-
-" Mappings for GoTo commands
-nmap <leader>g :YcmCompleter GoTo<CR>
-nmap <C-S-g> :YcmCompleter GoToInclude<CR>
-nmap <leader>t :YcmCompleter GetType<CR>
 
 "
 " Function to run each time when opening a new buffer
@@ -208,7 +228,7 @@ if v:version > 800 || v:version == 800 && has("patch587")
     tnoremap <silent> <C-j> <C-w>:TmuxNavigateDown<cr>
     tnoremap <silent> <C-k> <C-w>:TmuxNavigateUp<cr>
     tnoremap <silent> <C-l> <C-w>:TmuxNavigateRight<cr>
-    tnoremap <silent> <C-\> <C-w>:TmuxNavigatePrevious<cr>
+    "tnoremap <silent> <C-\> <C-w>:TmuxNavigatePrevious<cr>
 endif
 
 "
@@ -289,9 +309,3 @@ endif
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
-let g:ycm_server_use_vim_stdout = 1
-let g:ycm_server_log_level = 'debug'
-
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

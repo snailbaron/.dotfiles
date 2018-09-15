@@ -16,11 +16,16 @@ hi LineNr       ctermfg=DarkCyan
 hi Normal       ctermfg=White
 hi PreProc      ctermfg=Gray
 hi Search       cterm=NONE ctermfg=White ctermbg=DarkYellow
-hi Special      ctermfg=NONE
+hi Special      ctermfg=Yellow
 hi Statement    ctermfg=Blue
 hi String       ctermfg=Red
 hi Type         ctermfg=Blue
 hi VertSplit    cterm=NONE ctermfg=DarkGray
 hi Visual       ctermbg=DarkBlue
+hi Todo         ctermfg=DarkGreen ctermbg=DarkYellow
 
+" git
 hi gitcommitSummary cterm=bold
+
+" cmake
+hi link cmakeCommand Statement

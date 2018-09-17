@@ -8,11 +8,17 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-plug'
 
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'gerw/vim-HiLinkTrace'
 Plug 'majutsushi/tagbar'
 Plug 'pboettch/vim-cmake-syntax'
+Plug 'pdavydov108/vim-lsp-cquery'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'scrooloose/nerdtree'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
@@ -23,12 +29,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Conque-GDB'
 Plug 'zchee/vim-flatbuffers'
-
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'pdavydov108/vim-lsp-cquery'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 "if v:version > 704 || v:version == 704 && has("patch1578")
 "    Plug 'Valloric/YouCompleteMe' ", {'do': 'python2 install.py --clang-completer --system-libclang'}
@@ -104,7 +104,7 @@ inoremap <S-Tab> <C-d>
 " Process new buffer creation
 autocmd BufNewFile,BufRead * call OnBufferOpen()
 
-autocmd FileType html,xml,fbs setlocal tabstop=2 shiftwidth=2
+autocmd FileType html,xml,fbs,yaml setlocal tabstop=2 shiftwidth=2
 
 """ Colors and highlighting
 
@@ -136,6 +136,7 @@ let g:netrw_liststyle = 3
 
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 61
+let NERDTreeAutoDeleteBuffer = 1
 
 let g:NERDTreeMapJumpNextSibling = ''
 
@@ -160,6 +161,13 @@ if executable('cquery')
 endif
 
 nmap <silent> <leader>g :LspDefinition<CR>
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand('~/vim-lsp.log')
+"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 
 "
 " Termdebug mappings
@@ -309,3 +317,5 @@ endif
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
+packloadall
+silent! helptags ALL

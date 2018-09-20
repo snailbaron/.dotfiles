@@ -10,15 +10,11 @@ Plug 'junegunn/vim-plug'
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'gerw/vim-HiLinkTrace'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'pboettch/vim-cmake-syntax'
-Plug 'pdavydov108/vim-lsp-cquery'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/vim-lsp'
 Plug 'scrooloose/nerdtree'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
@@ -28,11 +24,8 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/Conque-GDB'
+Plug 'w0rp/ale'
 Plug 'zchee/vim-flatbuffers'
-
-"if v:version > 704 || v:version == 704 && has("patch1578")
-"    Plug 'Valloric/YouCompleteMe' ", {'do': 'python2 install.py --clang-completer --system-libclang'}
-"endif
 
 call plug#end()
 
@@ -72,6 +65,8 @@ set hlsearch
 
 set splitright
 set splitbelow
+
+set completeopt=menu,menuone,preview,noselect,noinsert
 
 " If cursor is on first or last line of the window, scroll to put current line
 " in the middle.
@@ -148,26 +143,16 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " vim-dispatch
 nnoremap <silent> <F7> :Dispatch<CR>
 
-" vim-lsp
+" fzf
+nnoremap <C-P> :FZF<CR>
 
-if executable('cquery')
-   autocmd User lsp_setup call lsp#register_server({
-      \ 'name': 'cquery',
-      \ 'cmd': {server_info->['cquery']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-      \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery/cache' },
-      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      \ })
-endif
+" ale
 
-nmap <silent> <leader>g :LspDefinition<CR>
-imap <c-space> <Plug>(asyncomplete_force_refresh)
+let g:ale_linters = {
+\   'cpp': ['cquery'],
+\ }
 
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-"let g:lsp_log_verbose = 1
-"let g:lsp_log_file = expand('~/vim-lsp.log')
-"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+let g:ale_completion_enabled = 1
 
 "
 " Termdebug mappings
@@ -178,28 +163,6 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 "nmap <silent> <S-F9> :Delete<CR>
 "nmap <silent> <F10> :Delete<CR>
 "nmap <silent> <S-F7> :Finish<CR>
-
-"
-" YouCompleteMe
-"
-
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_global_ycm_extra_conf = '~/.global_ycm_extra_conf.py'
-"let g:ycm_key_list_previous_completion = ['<Up>']
-"let g:ycm_key_list_select_completion = ['<Down>']
-"let g:ycm_server_log_level = 'debug'
-"let g:ycm_server_use_vim_stdout = 1
-"let g:ycm_show_diagnostics_ui = 1
-"let g:ycm_warning_symbol = '~>'
-
-" Do not ask if it is safe to load a configuration file. WARNING: allows
-" execution of malicious .ycm_extra_conf.py.
-let g:ycm_confirm_extra_conf = 0
-
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-" Highlight YCM errors with less acid color
-highlight YcmErrorSection ctermbg=5
 
 "
 " Function to run each time when opening a new buffer

@@ -6,13 +6,12 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/vim-plug'
-
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gerw/vim-HiLinkTrace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-plug'
 Plug 'majutsushi/tagbar'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'scrooloose/nerdtree'
@@ -136,6 +135,7 @@ let NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMapJumpNextSibling = ''
 
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
+noremap <silent> <F1> :NERDTreeFocus<CR>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -147,7 +147,6 @@ nnoremap <silent> <F7> :Dispatch<CR>
 nnoremap <C-P> :FZF<CR>
 
 " ale
-
 let g:ale_linters = {
 \   'cpp': ['cquery'],
 \ }

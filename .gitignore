@@ -11,9 +11,9 @@
 !/scripts/
 
 !/.vim/
+/.vim/autoload
 /.vim/swap/
 /.vim/plugged
-/.vim/autoload/plug.vim
 /.vim/.netrwhist
 
 !/.tmux/plugins/tpm/

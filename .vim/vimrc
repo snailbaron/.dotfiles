@@ -68,7 +68,11 @@ set hlsearch
 set splitright
 set splitbelow
 
-set completeopt=menu,menuone,preview,noselect,noinsert
+if v:version > 704
+    set completeopt=menu,menuone,preview,noselect,noinsert
+else
+    set completeopt=menu,menuone,preview
+endif
 
 " If cursor is on first or last line of the window, scroll to put current line
 " in the middle.
@@ -289,5 +293,4 @@ endif
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
-packloadall
 silent! helptags ALL

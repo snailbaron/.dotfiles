@@ -1,13 +1,5 @@
 /*
 
-!/.config/
-/.config/*
-!/.config/openbox/
-!/.config/rofi/
-!/.config/sakura/
-!/.config/systemd/
-!/.config/tint2/
-
 !/scripts/
 
 !/.vim/
@@ -18,7 +10,6 @@
 
 !/.tmux/plugins/tpm/
 
-!/.themes/
 !/.backup/
 
 !/.colordiffrc
@@ -27,7 +18,3 @@
 !/.inputrc
 !/.subversion/config
 !/.tmux.conf
-!/.xbindkeysrc
-!/.xprofile
-!/.yaourtrc
-

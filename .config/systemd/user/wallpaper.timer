@@ -1,7 +1,0 @@
-[Unit]
-Description=Change desktop wallpaper in regular intervals
-Requires=wallpaper.service
-
-[Timer]
-OnUnitActiveSec=30min
-AccuracySec=1min

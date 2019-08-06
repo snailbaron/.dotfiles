@@ -12,7 +12,6 @@ Plug 'gerw/vim-HiLinkTrace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-plug'
-Plug 'majutsushi/tagbar'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'tmux-plugins/vim-tmux'
@@ -41,37 +40,34 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=5 guibg=red
 
 colorscheme snailbaron
 
-set nobackup
-set writebackup
-
-set tabstop=4
-set shiftwidth=4
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set colorcolumn=81
+set completeopt=menu,menuone,preview,noselect,noinsert
+set cursorline
+set encoding=utf-8
 set expandtab
-
+set formatoptions+=j
+set history=1000
+set hlsearch
+set incsearch
+set mouse=a
+set nobackup
 set nocindent
 set nosmartindent
-set autoindent
-set backspace=indent,eol,start
-set encoding=utf-8
-set incsearch
+set number
+set shiftwidth=4
+set splitbelow
+set splitright
+set tabstop=4
+set timeoutlen=1000 ttimeoutlen=0
+set ttymouse=xterm2  " makes mouse play nice with tmux
 set wildmenu
+set writebackup
+
 if &listchars ==# 'eol:$'
     set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
-set formatoptions+=j
-set autoread
-set history=1000
-
-set number
-set hlsearch
-
-set splitright
-set splitbelow
-
-if v:version > 704
-    set completeopt=menu,menuone,preview,noselect,noinsert
-else
-    set completeopt=menu,menuone,preview
 endif
 
 " If cursor is on first or last line of the window, scroll to put current line
@@ -86,59 +82,33 @@ endfunction
 nnoremap <silent> <C-]>:call CenterOnCursorIfOnEdge()<CR>
 nnoremap <silent> n n:call CenterOnCursorIfOnEdge()<CR>
 
-" Enable mouse support, and make it play nice with tmux
-set mouse=a
-set ttymouse=xterm2
-
-"set timeoutlen=0 ttimeoutlen=0
-set timeoutlen=1000 ttimeoutlen=0
-
-" English, do you speak it?
-if has('win32')
-    language english
-else
-    language en_US.UTF-8
-endif
-
-inoremap <S-Tab> <C-d>
+"inoremap <S-Tab> <C-d>
+nnoremap <Tab> <Esc>
+vnoremap <Tab> <Esc>gV
+onoremap <Tab> <Esc>
+cnoremap <Tab> <C-C><Esc>
+inoremap <Tab> <Esc>`^
+inoremap <Leader><Tab> <Tab>
 
 " Process new buffer creation
 autocmd BufNewFile,BufRead * call OnBufferOpen()
 
+function! OnBufferOpen()
+    " Highlight unnecessary whitespace
+    if &filetype == "cpp"
+        match ExtraWhitespace /\s\+$\|\t/
+    else
+        match ExtraWhitespace /\s\+$/
+    endif
+endfunction
+
 autocmd FileType html,xml,fbs,yaml setlocal tabstop=2 shiftwidth=2
 
-""" Colors and highlighting
 
-" Color column 81 with light gray
-set colorcolumn=81
-highlight ColorColumn ctermbg=DarkGray
-
-" Indicate current line with deep black
-set cursorline
-highlight CursorLine cterm=NONE ctermbg=Black
-
-" GNU Global related settings
-let GtagsCscope_Auto_Load = 1
-let GtagsCscope_Auto_Map = 1
-let GtagsCscope_Quiet = 1
-set cscopetag
-
-"
-" netrw
-"
-
-let g:netrw_banner = 0
-let g:netrw_sort_sequence = "[\/]$"
-let g:netrw_liststyle = 3
-
-"
 " NERDTree
-"
-
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 61
 let NERDTreeAutoDeleteBuffer = 1
-
 let g:NERDTreeMapJumpNextSibling = ''
 
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
@@ -165,40 +135,8 @@ let g:ycm_show_diagnostics_ui = 1
 let g:ycm_warning_symbol = '~>'
 
 nnoremap <silent> gd :YcmCompleter GoTo<CR>
-nnoremap <silent> gi :YcmCompleter GoToInclude<CR>
 
-"
-" Termdebug mappings
-"
-"nmap <silent> <F7> :Step<CR>
-"nmap <silent> <F8> :Over<CR>
-"nmap <silent> <F9> :Break<CR>
-"nmap <silent> <S-F9> :Delete<CR>
-"nmap <silent> <F10> :Delete<CR>
-"nmap <silent> <S-F7> :Finish<CR>
-
-"
-" Function to run each time when opening a new buffer
-"
-
-function! OnBufferOpen()
-    " Highlight unnecessary whitespace
-    if &filetype == "cpp"
-        match ExtraWhitespace /\s\+$\|\t/
-    else
-        match ExtraWhitespace /\s\+$/
-    endif
-endfunction
-
-"
-" tagbar mappings
-"
-nnoremap <F8> :TagbarToggle<CR>
-
-"
 " vim-tmux-navigator mappings
-"
-
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -206,19 +144,9 @@ nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+set wildchar=<C-e>
 
-if v:version > 800 || v:version == 800 && has("patch587")
-    tnoremap <silent> <C-h> <C-w>:TmuxNavigateLeft<cr>
-    tnoremap <silent> <C-j> <C-w>:TmuxNavigateDown<cr>
-    tnoremap <silent> <C-k> <C-w>:TmuxNavigateUp<cr>
-    tnoremap <silent> <C-l> <C-w>:TmuxNavigateRight<cr>
-    "tnoremap <silent> <C-\> <C-w>:TmuxNavigatePrevious<cr>
-endif
-
-"
 " Seamless resize in Vim/tmux
-"
-
 let g:tmux_resize_vertical_step = 3
 let g:tmux_resize_horizontal_step = 5
 
@@ -278,7 +206,23 @@ nnoremap <silent> <Esc>l :TmuxResizeRight<CR>
 nnoremap <silent> <Esc>j :TmuxResizeDown<CR>
 nnoremap <silent> <Esc>k :TmuxResizeUp<CR>
 
+" Terminal mode and termdebug
 if v:version > 800 || v:version == 800 && has("patch587")
+    autocmd BufWinEnter,WinEnter term://* startinsert
+    autocmd BufLeave term://* stopinsert
+
+    nmap <silent> <F11> :Step<CR>
+    nmap <silent> <F10> :Over<CR>
+    nmap <silent> <F9> :Break<CR>
+    nmap <silent> <S-F9> :Delete<CR>
+    nmap <silent> <S-F7> :Finish<CR>
+
+    tnoremap <silent> <C-h> <C-w>:TmuxNavigateLeft<cr>
+    tnoremap <silent> <C-j> <C-w>:TmuxNavigateDown<cr>
+    tnoremap <silent> <C-k> <C-w>:TmuxNavigateUp<cr>
+    tnoremap <silent> <C-l> <C-w>:TmuxNavigateRight<cr>
+    "tnoremap <silent> <C-\> <C-w>:TmuxNavigatePrevious<cr>
+
     tnoremap <silent> <M-h> <C-w>:TmuxResizeLeft<CR>
     tnoremap <silent> <M-l> <C-w>:TmuxResizeRight<CR>
     tnoremap <silent> <M-j> <C-w>:TmuxResizeDown<CR>
@@ -289,8 +233,5 @@ if v:version > 800 || v:version == 800 && has("patch587")
     tnoremap <silent> <Esc>j <C-w>:TmuxResizeDown<CR>
     tnoremap <silent> <Esc>k <C-w>:TmuxResizeUp<CR>
 endif
-
-autocmd BufWinEnter,WinEnter term://* startinsert
-autocmd BufLeave term://* stopinsert
 
 silent! helptags ALL

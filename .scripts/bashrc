@@ -1,3 +1,5 @@
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 PROMPT_COMMAND=__prompt_command
 
 __prompt_command() {
@@ -17,4 +19,10 @@ __prompt_command() {
     PS1+="${GREEN}\$${END} "
 }
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+svn() {
+    if [ "$1" = "diff" ] || [ "$1" = "log" ]; then
+        /usr/bin/svn "$@" | less -R
+    else
+        /usr/bin/svn "$@"
+    fi
+}

@@ -48,6 +48,7 @@ set completeopt=menu,menuone,preview,noselect,noinsert
 set cursorline
 set encoding=utf-8
 set expandtab
+set fillchars=vert:│,fold:-
 set formatoptions+=j
 set history=1000
 set hlsearch

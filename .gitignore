@@ -8,13 +8,15 @@
 /.vim/plugged
 /.vim/.netrwhist
 
-!/.tmux/plugins/tpm/
+!/.ccache/
+/.ccache/*
+!/.ccache/ccache.conf
 
 !/.backup/
-
 !/.colordiffrc
 !/.gitignore
 !/.gitignore_global
 !/.inputrc
 !/.subversion/config
 !/.tmux.conf
+!/.tmux/plugins/tpm/

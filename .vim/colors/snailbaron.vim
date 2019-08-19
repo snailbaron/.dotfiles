@@ -39,7 +39,7 @@ hi String       ctermfg=9
 hi Title        ctermfg=8
 hi Todo         ctermfg=2    ctermbg=3
 hi Type         ctermfg=12
-hi VertSplit                            cterm=none
+hi VertSplit    ctermfg=8               cterm=none
 hi Visual                    ctermbg=4
 hi WarningMsg                ctermbg=2
 

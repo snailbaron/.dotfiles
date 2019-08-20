@@ -24,11 +24,11 @@ hi FoldColumn   ctermfg=7    ctermbg=15
 hi Folded                    ctermbg=7
 hi Identifier   ctermfg=7
 hi IncSearch    ctermfg=8
-hi Label        ctermfg=3
+hi Label        ctermfg=12
 hi LineNr       ctermfg=6
 hi Number       ctermfg=11
 hi Operator     ctermfg=12
-hi PreProc      ctermfg=7
+hi PreProc      ctermfg=8
 hi Search       ctermfg=none ctermbg=3
 hi Special      ctermfg=11
 hi SpellBad                  ctermbg=1

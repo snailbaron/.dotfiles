@@ -87,8 +87,6 @@ endfunction
 nnoremap <silent> <C-]>:call CenterOnCursorIfOnEdge()<CR>
 nnoremap <silent> n n:call CenterOnCursorIfOnEdge()<CR>
 
-"inoremap <S-Tab> <C-d>
-nnoremap <Tab> <Esc>
 vnoremap <Tab> <Esc>gV
 onoremap <Tab> <Esc>
 cnoremap <Tab> <C-C><Esc>

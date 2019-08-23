@@ -11,7 +11,7 @@ hi ColorColumn               ctermbg=8
 hi Comment      ctermfg=2
 hi Constant     ctermfg=11
 hi Cursor       ctermfg=6
-hi CursorLine                ctermbg=0  cterm=None
+hi CursorLine                ctermbg=0  cterm=none
 hi CursorLineNr ctermfg=14
 hi DiffAdd                   ctermbg=11
 hi DiffChange                ctermbg=2
@@ -48,3 +48,12 @@ hi gitcommitSummary cterm=bold
 
 " cmake
 hi link cmakeCommand Statement
+
+" markdown
+hi markdownH1 cterm=bold
+hi markdownH2 cterm=bold
+hi markdownLinkText ctermfg=12 cterm=underline
+hi markdownUrl ctermfg=2
+hi markdownLinkDelimiter ctermfg=8
+hi markdownLinkTextDelimiter ctermfg=8
+hi markdownCode ctermfg=11

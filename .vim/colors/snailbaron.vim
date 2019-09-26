@@ -13,10 +13,10 @@ hi Constant     ctermfg=11
 hi Cursor       ctermfg=6
 hi CursorLine                ctermbg=0  cterm=none
 hi CursorLineNr ctermfg=14
-hi DiffAdd                   ctermbg=11
-hi DiffChange                ctermbg=2
-hi DiffDelete                ctermbg=1
-hi DiffText                  ctermbg=3
+hi DiffAdd      ctermfg=2    ctermbg=none
+hi DiffChange   ctermfg=4    ctermbg=none
+hi DiffDelete   ctermfg=1    ctermbg=none
+hi DiffText     ctermfg=4    ctermbg=none
 hi Directory    ctermfg=14
 hi Error                     ctermbg=1
 hi ErrorMsg                  ctermbg=1

@@ -1,3 +1,48 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule ".vim/pack/snailbaron/nerdtree-git-plugin"]
+	path = .vim/pack/snailbaron/start/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule ".vim/pack/snailbaron/vim-tmux-navigator"]
+	path = .vim/pack/snailbaron/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule ".vim/pack/snailbaron/vim-HiLinkTrace"]
+	path = .vim/pack/snailbaron/start/vim-HiLinkTrace
+	url = https://github.com/gerw/vim-HiLinkTrace
+[submodule ".vim/pack/snailbaron/fzf.vim"]
+	path = .vim/pack/snailbaron/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule ".vim/pack/snailbaron/nerdtree"]
+	path = .vim/pack/snailbaron/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule ".vim/pack/snailbaron/vim-tmux"]
+	path = .vim/pack/snailbaron/start/vim-tmux
+	url = https://github.com/tmux-plugins/vim-tmux
+[submodule ".vim/pack/snailbaron/vim-commentary"]
+	path = .vim/pack/snailbaron/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule ".vim/pack/snailbaron/vim-dispatch"]
+	path = .vim/pack/snailbaron/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule ".vim/pack/snailbaron/vim-fugitive"]
+	path = .vim/pack/snailbaron/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule ".vim/pack/snailbaron/vim-obsession"]
+	path = .vim/pack/snailbaron/start/vim-obsession
+	url = https://github.com/tpope/vim-obsession
+[submodule ".vim/pack/snailbaron/vim-vinegar"]
+	path = .vim/pack/snailbaron/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule ".vim/pack/snailbaron/vim-airline"]
+	path = .vim/pack/snailbaron/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".vim/pack/snailbaron/vim-flatbuffers"]
+	path = .vim/pack/snailbaron/start/vim-flatbuffers
+	url = https://github.com/zchee/vim-flatbuffers
+[submodule ".vim/pack/snailbaron/YouCompleteMe"]
+	path = .vim/pack/snailbaron/start/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe
+[submodule ".fzf"]
+	path = .fzf
+	url = https://github.com/junegunn/fzf

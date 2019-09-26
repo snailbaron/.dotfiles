@@ -11,8 +11,8 @@ hi ColorColumn               ctermbg=8
 hi Comment      ctermfg=2
 hi Constant     ctermfg=11
 hi Cursor       ctermfg=6
-hi CursorLine                ctermbg=0  cterm=none
-hi CursorLineNr ctermfg=14
+hi CursorLine                ctermbg=0    cterm=none
+hi CursorLineNr ctermfg=14                cterm=none
 hi DiffAdd      ctermfg=2    ctermbg=none
 hi DiffChange   ctermfg=4    ctermbg=none
 hi DiffDelete   ctermfg=1    ctermbg=none
@@ -39,7 +39,7 @@ hi String       ctermfg=9
 hi Title        ctermfg=8
 hi Todo         ctermfg=2    ctermbg=3
 hi Type         ctermfg=12
-hi VertSplit    ctermfg=8               cterm=none
+hi VertSplit    ctermfg=8                 cterm=none
 hi Visual                    ctermbg=4
 hi WarningMsg                ctermbg=5
 

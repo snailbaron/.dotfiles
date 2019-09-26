@@ -46,3 +46,6 @@
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf
+[submodule ".vim/pack/snailbaron/start/ale"]
+	path = .vim/pack/snailbaron/start/ale
+	url = https://github.com/dense-analysis/ale.git

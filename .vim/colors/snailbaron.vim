@@ -28,10 +28,13 @@ hi Label        ctermfg=12
 hi LineNr       ctermfg=6
 hi Number       ctermfg=11
 hi Operator     ctermfg=12
+hi Pmenu        ctermfg=none ctermbg=5
+hi PmenuSel     ctermfg=8    ctermbg=0
 hi PreProc      ctermfg=8
 hi Search       ctermfg=none ctermbg=3
 hi Special      ctermfg=11
 hi SpellBad                  ctermbg=1
+hi SpellCap                  ctermbg=5
 hi Statement    ctermfg=12
 hi StatusLine   ctermfg=14   ctermbg=12
 hi StatusLineNC ctermfg=12   ctermbg=4

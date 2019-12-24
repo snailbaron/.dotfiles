@@ -3,9 +3,6 @@ filetype plugin on
 
 syntax enable
 
-" Create highlight group for improper whitespace usage
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=5 guibg=red
-
 colorscheme snailbaron
 
 set autoindent
@@ -63,9 +60,9 @@ autocmd BufNewFile,BufRead * call OnBufferOpen()
 function! OnBufferOpen()
     " Highlight unnecessary whitespace
     if &filetype == "cpp"
-        match ExtraWhitespace /\s\+$\|\t/
+        match WarningMsg /\s\+$\|\t/
     else
-        match ExtraWhitespace /\s\+$/
+        match WarningMsg /\s\+$/
     endif
 endfunction
 
@@ -112,9 +109,14 @@ let g:ale_linters = {
 \   'python': ['pylint'],
 \ }
 
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ }
+
+" let g:ale_fix_on_save = 1
+
 " vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1
-
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>

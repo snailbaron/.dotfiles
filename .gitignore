@@ -25,3 +25,4 @@
 !/.config
 /.config/*
 !/.config/fontconfig
+!/.config/yay

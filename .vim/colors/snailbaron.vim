@@ -5,7 +5,7 @@ if exists("syntax_on")
 endif
 let g:colors_name="snailbaron"
 
-hi Boolean      ctermfg=12
+hi Boolean      ctermfg=4
 hi Character    ctermfg=9
 hi ColorColumn               ctermbg=8
 hi Comment      ctermfg=2
@@ -24,10 +24,10 @@ hi FoldColumn   ctermfg=7    ctermbg=15
 hi Folded                    ctermbg=7
 hi Identifier   ctermfg=7
 hi IncSearch    ctermfg=8
-hi Label        ctermfg=12
+hi Label        ctermfg=4
 hi LineNr       ctermfg=6
 hi Number       ctermfg=11
-hi Operator     ctermfg=12
+hi Operator     ctermfg=4
 hi Pmenu        ctermfg=none ctermbg=5
 hi PmenuSel     ctermfg=8    ctermbg=0
 hi PreProc      ctermfg=8
@@ -35,13 +35,13 @@ hi Search       ctermfg=none ctermbg=3
 hi Special      ctermfg=11
 hi SpellBad                  ctermbg=1
 hi SpellCap                  ctermbg=5
-hi Statement    ctermfg=12
+hi Statement    ctermfg=4
 hi StatusLine   ctermfg=14   ctermbg=12
-hi StatusLineNC ctermfg=12   ctermbg=4
+hi StatusLineNC ctermfg=4   ctermbg=4
 hi String       ctermfg=9
 hi Title        ctermfg=8
 hi Todo         ctermfg=2    ctermbg=3
-hi Type         ctermfg=12
+hi Type         ctermfg=4
 hi VertSplit    ctermfg=8                 cterm=none
 hi Visual                    ctermbg=4
 hi WarningMsg                ctermbg=5

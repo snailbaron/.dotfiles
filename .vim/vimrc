@@ -5,6 +5,8 @@ syntax enable
 
 colorscheme snailbaron
 
+set rtp+=~/.fzf
+
 set autoindent
 set autoread
 set backspace=indent,eol,start
@@ -71,7 +73,7 @@ autocmd FileType html,xml,fbs,yaml setlocal tabstop=2 shiftwidth=2
 
 " NERDTree
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize = 61
+let g:NERDTreeWinSize = 50
 let NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMapJumpNextSibling = ''
 
@@ -88,6 +90,11 @@ nnoremap <silent> <F7> :Dispatch<CR>
 nnoremap <C-P> :FZF<CR>
 
 " YouCompleteMe
+let g:ycm_clangd_uses_ycmd_caching = 0
+let g:ycm_clangd_binary_path = exepath('clangd')
+"clangd-9 and later should do this automatically:
+"let g:ycm_clangd_args = ['-background-index']
+
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.global_ycm_extra_conf.py'

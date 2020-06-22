@@ -28,9 +28,9 @@ hi Label        ctermfg=12
 hi LineNr       ctermfg=6
 hi Number       ctermfg=11
 hi Operator     ctermfg=12
-hi Pmenu        ctermfg=none ctermbg=8
-hi PmenuSel     ctermfg=7    ctermbg=0
-hi PreProc      ctermfg=7
+hi Pmenu        ctermfg=none ctermbg=7
+hi PmenuSel     ctermfg=8    ctermbg=0
+hi PreProc      ctermfg=8
 hi Search       ctermfg=none ctermbg=3
 hi Special      ctermfg=11
 hi SpellBad                  ctermbg=1

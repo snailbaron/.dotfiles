@@ -9,8 +9,12 @@ __prompt_command() {
     local RED='\[\e[31;1m\]'
     local GREEN='\[\e[32;1m\]'
     local END='\[\e[0m\]'
-    PS1=''
 
+    local TITLE_BEGIN='\[\e]0;'
+    local TITLE_END='\a\]'
+
+    PS1=''
+    PS1+="${TITLE_BEGIN}\h${TITLE_END}"
     PS1+="\n"
     if [ $EXIT != 0 ]; then
         PS1+="${RED}[${EXIT}]${END} "

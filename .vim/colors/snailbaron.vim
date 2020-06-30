@@ -17,7 +17,7 @@ hi DiffAdd      ctermfg=2    ctermbg=none
 hi DiffChange   ctermfg=4    ctermbg=none
 hi DiffDelete   ctermfg=1    ctermbg=none
 hi DiffText     ctermfg=12   ctermbg=none
-hi Directory    ctermfg=14
+hi Directory    ctermfg=4    cterm=bold
 hi Error                     ctermbg=1
 hi ErrorMsg                  ctermbg=1
 hi FoldColumn   ctermfg=8    ctermbg=7
@@ -39,7 +39,7 @@ hi Statement    ctermfg=12
 hi StatusLine   ctermfg=14   ctermbg=12
 hi StatusLineNC ctermfg=12   ctermbg=4
 hi String       ctermfg=9
-hi Title        ctermfg=7
+hi Title        ctermfg=8
 hi Todo         ctermfg=2    ctermbg=3
 hi Type         ctermfg=12
 hi VertSplit    ctermfg=7                 cterm=none
@@ -60,3 +60,7 @@ hi markdownUrl ctermfg=2
 hi markdownLinkDelimiter ctermfg=7
 hi markdownLinkTextDelimiter ctermfg=7
 hi markdownCode ctermfg=11
+
+" NERDTree
+hi NERDTreeExecFile ctermfg=2 cterm=bold
+hi NERDTreeCWD ctermfg=6 cterm=bold

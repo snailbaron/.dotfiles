@@ -13,3 +13,5 @@ tags.lock
 tags.temp
 ycm_*.py
 /build
+/build-debug
+/build-release

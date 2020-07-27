@@ -64,3 +64,4 @@ hi markdownCode ctermfg=11
 " NERDTree
 hi NERDTreeExecFile ctermfg=2 cterm=bold
 hi NERDTreeCWD ctermfg=6 cterm=bold
+hi NERDTreeLinkTarget ctermfg=8

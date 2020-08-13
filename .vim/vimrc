@@ -70,18 +70,17 @@ endfunction
 
 autocmd FileType html,xml,fbs,yaml setlocal tabstop=2 shiftwidth=2
 
-
 " NERDTree
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize = 50
-let NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeMapJumpNextSibling = ''
-
-nnoremap <silent> <F4> :NERDTreeToggle<CR>
-noremap <silent> <F1> :NERDTreeFocus<CR>
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"let g:NERDTreeMinimalUI = 1
+"let g:NERDTreeWinSize = 50
+"let NERDTreeAutoDeleteBuffer = 1
+"let g:NERDTreeMapJumpNextSibling = ''
+"
+"nnoremap <silent> <F4> :NERDTreeToggle<CR>
+"noremap <silent> <F1> :NERDTreeFocus<CR>
+"
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " vim-dispatch
 nnoremap <silent> <F7> :Dispatch<CR>

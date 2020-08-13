@@ -49,3 +49,6 @@
 [submodule ".vim/pack/snailbaron/start/ale"]
 	path = .vim/pack/snailbaron/start/ale
 	url = https://github.com/dense-analysis/ale.git
+[submodule ".vim/pack/snailbaron/start/vim-code-dark"]
+	path = .vim/pack/snailbaron/start/vim-code-dark
+	url = https://github.com/tomasiser/vim-code-dark.git

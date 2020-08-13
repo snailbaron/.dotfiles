@@ -3,7 +3,7 @@ filetype plugin on
 
 syntax enable
 
-colorscheme snailbaron
+colorscheme codedark
 
 set rtp+=~/.fzf
 

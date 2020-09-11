@@ -43,3 +43,9 @@
 [submodule ".vim/pack/snailbaron/start/base16-vim-airline-themes"]
 	path = .vim/pack/snailbaron/start/base16-vim-airline-themes
 	url = https://github.com/dawikur/base16-vim-airline-themes.git
+[submodule ".vim/pack/snailbaron/start/nerdtree"]
+	path = .vim/pack/snailbaron/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule ".vim/pack/snailbaron/start/vim-airline"]
+	path = .vim/pack/snailbaron/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git

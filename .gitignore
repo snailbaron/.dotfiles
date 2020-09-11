@@ -24,5 +24,6 @@
 
 !/.config
 /.config/*
+!/.config/base16-gnome-terminal
 !/.config/fontconfig
 !/.config/yay

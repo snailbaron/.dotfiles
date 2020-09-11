@@ -3,7 +3,7 @@ filetype plugin on
 
 syntax enable
 
-colorscheme codedark
+colorscheme base16-material-darker
 
 set rtp+=~/.fzf
 

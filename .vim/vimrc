@@ -107,6 +107,9 @@ let g:ycm_filetype_blacklist = {
 nnoremap <silent> gd :YcmCompleter GoTo<CR>
 nnoremap <silent> gr :YcmCompleter GoToReferences<CR>
 
+hi link YcmErrorSection Error
+hi link YcmWarningSection ToDo
+
 " ALE
 
 let g:ale_echo_msg_format = '[%linter%] [%severity%] (%code%) %s'

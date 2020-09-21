@@ -24,6 +24,13 @@
 
 !/.config
 /.config/*
+
+!/.config/Code/
+/.config/Code/*
+!/.config/Code/User/
+/.config/Code/User/*
+!/.config/Code/User/settings.json
+
 !/.config/base16-gnome-terminal
 !/.config/fontconfig
 !/.config/yay

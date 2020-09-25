@@ -3,7 +3,9 @@ filetype plugin on
 
 syntax enable
 
-colorscheme base16-material-darker
+colorscheme codedark
+hi Search term=reverse ctermbg=240 guibg=#4C4E50
+hi IncSearch term=reverse ctermbg=240 guibg=#49545F
 
 set rtp+=~/.fzf
 

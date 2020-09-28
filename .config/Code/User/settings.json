@@ -5,5 +5,8 @@
     "window.zoomLevel": 0,
     "editor.rulers": [
         80
-    ]
+    ],
+    "editor.fontFamily": "Hack, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.minimap.enabled": false,
+    "keyboard.dispatch": "keyCode"
 }

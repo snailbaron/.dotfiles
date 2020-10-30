@@ -22,6 +22,7 @@ set formatoptions+=j
 set history=1000
 set hlsearch
 set incsearch
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:+,eol:¬
 set mouse=a
 set nobackup
 set nocindent
@@ -36,10 +37,6 @@ set ttymouse=xterm2  " makes mouse play nice with tmux
 set wildmenu
 set writebackup
 
-if &listchars ==# 'eol:$'
-    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
-
 " If cursor is on first or last line of the window, scroll to put current line
 " in the middle.
 function! CenterOnCursorIfOnEdge()
@@ -51,6 +48,8 @@ endfunction
 
 nnoremap <silent> <C-]>:call CenterOnCursorIfOnEdge()<CR>
 nnoremap <silent> n n:call CenterOnCursorIfOnEdge()<CR>
+
+nnoremap <leader>l :set list!<CR>
 
 vnoremap <Tab> <Esc>gV
 onoremap <Tab> <Esc>
@@ -108,9 +107,6 @@ let g:ycm_filetype_blacklist = {
 
 nnoremap <silent> gd :YcmCompleter GoTo<CR>
 nnoremap <silent> gr :YcmCompleter GoToReferences<CR>
-
-hi link YcmErrorSection Error
-hi link YcmWarningSection ToDo
 
 " ALE
 

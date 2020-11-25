@@ -1,0 +1,6 @@
+[log]
+	decorate = true
+[alias]
+	hist = log --all --tags --graph --decorate --oneline
+[push]
+	default = simple

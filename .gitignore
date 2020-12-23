@@ -35,3 +35,7 @@
 !/.config/base16-gnome-terminal
 !/.config/fontconfig
 !/.config/yay
+
+!/.ssh/
+/.ssh/*
+!/.ssh/rc

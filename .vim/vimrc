@@ -3,7 +3,7 @@ filetype plugin on
 
 syntax enable
 
-colorscheme codedark
+colorscheme desert
 hi Search term=reverse ctermbg=240 guibg=#4C4E50
 hi IncSearch term=reverse ctermbg=240 guibg=#49545F
 

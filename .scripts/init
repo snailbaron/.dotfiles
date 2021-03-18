@@ -1,0 +1,15 @@
+#!/bin/sh -ex
+
+REPO_URL="git@github.com:snailbaron/.dotfiles.git"
+BRANCH="master"
+
+echo 'alias config='\''git --git-dir "$HOME/.dotfiles" --work-tree "$HOME"'\' >> ~/.bashrc
+
+git --git-dir "$HOME/.dotfiles" --work-tree "$HOME" init
+git --git-dir "$HOME/.dotfiles" --work-tree "$HOME" remote add origin "$REPO_URL"
+git --git-dir "$HOME/.dotfiles" --work-tree "$HOME" fetch
+git --git-dir "$HOME/.dotfiles" --work-tree "$HOME" checkout --force "$BRANCH"
+git --git-dir "$HOME/.dotfiles" --work-tree "$HOME" submodule update --init --recursive
+git --git-dir "$HOME/.dotfiles" --work-tree "$HOME" config status.showUntrackedFiles no
+git --git-dir "$HOME/.dotfiles" --work-tree "$HOME" config user.name snailbaron
+git --git-dir "$HOME/.dotfiles" --work-tree "$HOME" config user.email snailbaron@gmail.com

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ $# -ne 1 ]; then
+    exit 1
+fi
+
+target_host="$1"
+rsync -avz "$HOME/.dotfiles" "$target_host:~/"
+rsync -avz "$HOME/.vim" "$target_host:~/"
+
+ssh "$target_host" "echo \"alias config='git --git-dir \\\"\\\$HOME/.dotfiles\\\" --work-tree \\\"\\\$HOME\\\"'\" >> ~/.bashrc"
+ssh "$target_host" "echo 'set -o vi' >> ~/.bashrc"
+ssh "$target_host" "git --git-dir \"\$HOME/.dotfiles\" --work-tree \"\$HOME\" config status.showUntrackedFiles no"
+ssh "$target_host" "git --git-dir \"\$HOME/.dotfiles\" --work-tree \"\$HOME\" config user.name snailbaron"
+ssh "$target_host" "git --git-dir \"\$HOME/.dotfiles\" --work-tree \"\$HOME\" config user.email snailbaron@gmail.com"
+ssh "$target_host" "git --git-dir \"\$HOME/.dotfiles\" --work-tree \"\$HOME\" config push.ff only"
+ssh "$target_host" "git --git-dir \"\$HOME/.dotfiles\" --work-tree \"\$HOME\" checkout --force master"

@@ -3,7 +3,7 @@ filetype plugin on
 
 syntax enable
 
-colorscheme desert
+colorscheme base16-default-dark
 hi Search term=reverse ctermbg=240 guibg=#4C4E50
 hi IncSearch term=reverse ctermbg=240 guibg=#49545F
 
@@ -63,12 +63,6 @@ nnoremap <silent> <C-]>:call CenterOnCursorIfOnEdge()<CR>
 nnoremap <silent> n n:call CenterOnCursorIfOnEdge()<CR>
 
 nnoremap <leader>l :set list!<CR>
-
-vnoremap <Tab> <Esc>gV
-onoremap <Tab> <Esc>
-cnoremap <Tab> <C-C><Esc>
-inoremap <Tab> <Esc>`^
-inoremap <Leader><Tab> <Tab>
 
 " Process new buffer creation
 autocmd BufNewFile,BufRead * call OnBufferOpen()

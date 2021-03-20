@@ -41,6 +41,7 @@ set tabstop=4
 set timeoutlen=1000 ttimeoutlen=0
 set ttymouse=xterm2  " makes mouse play nice with tmux
 set wildmenu
+set wildmode=longest:full
 set writebackup
 
 set langmap=

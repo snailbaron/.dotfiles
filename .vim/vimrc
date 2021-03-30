@@ -81,6 +81,9 @@ endfunction
 
 autocmd FileType html,xml,fbs,yaml setlocal tabstop=2 shiftwidth=2
 
+" vim-airline
+let g:airline_theme='base16_default_dark'
+
 " NERDTree
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 50

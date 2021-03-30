@@ -1,0 +1,25 @@
+#!/bin/sh
+
+prepend_path_if_exists() {
+    variable="$1"
+    path="$2"
+
+    if [ -d "$path" ] ; then
+        eval current_value="\$$variable"
+        if [ -z "$current_value" ] ; then
+            eval ${variable}="$path"
+        else
+            eval ${variable}="$path:\${$variable}"
+        fi
+        eval export $variable
+    fi
+}
+
+if [ -z "$TMUX" ] ; then
+    prepend_path_if_exists PATH "$HOME/bin"
+    prepend_path_if_exists PATH "$HOME/.local/bin"
+    prepend_path_if_exists LIBRARY_PATH "$HOME/.local/lib"
+    prepend_path_if_exists LD_LIBRARY_PATH "$HOME/.local/lib"
+    prepend_path_if_exists C_INCLUDE_PATH "$HOME/.local/include"
+    prepend_path_if_exists CPLUS_INCLUDE_PATH "$HOME/.local/include"
+fi

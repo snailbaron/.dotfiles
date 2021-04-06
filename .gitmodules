@@ -37,3 +37,6 @@
 [submodule ".vim/pack/snailbaron/start/base16-vim-airline-themes"]
 	path = .vim/pack/snailbaron/start/base16-vim-airline-themes
 	url = https://github.com/dawikur/base16-vim-airline-themes.git
+[submodule ".vim/pack/snailbaron/start/ack.vim"]
+	path = .vim/pack/snailbaron/start/ack.vim
+	url = https://github.com/mileszs/ack.vim.git

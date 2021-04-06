@@ -81,6 +81,9 @@ endfunction
 
 autocmd FileType html,xml,fbs,yaml setlocal tabstop=2 shiftwidth=2
 
+autocmd Syntax c,cpp,python setlocal foldmethod=syntax
+autocmd Syntax c,cpp,python normal zR
+
 " vim-airline
 let g:airline_theme='base16_default_dark'
 

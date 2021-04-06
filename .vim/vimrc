@@ -73,9 +73,9 @@ autocmd BufNewFile,BufRead * call OnBufferOpen()
 function! OnBufferOpen()
     " Highlight unnecessary whitespace
     if &filetype == "cpp"
-        match WarningMsg /\s\+$\|\t/
+        match Error /\s\+$\|\t/
     else
-        match WarningMsg /\s\+$/
+        match Error /\s\+$/
     endif
 endfunction
 

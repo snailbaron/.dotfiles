@@ -4,7 +4,7 @@ prepend_path_if_exists() {
     variable="$1"
     path="$2"
 
-    if [ -d "$path" ] ; then
+    if [ -d "$path" -a ! -L "$path" ] ; then
         eval current_value="\$$variable"
         if [ -z "$current_value" ] ; then
             eval ${variable}="$path"
@@ -16,10 +16,14 @@ prepend_path_if_exists() {
 }
 
 if [ -z "$TMUX" ] ; then
-    prepend_path_if_exists PATH "$HOME/bin"
     prepend_path_if_exists PATH "$HOME/.local/bin"
+    prepend_path_if_exists PATH "$HOME/bin"
+
+    prepend_path_if_exists LIBRARY_PATH "$HOME/.local/lib64"
     prepend_path_if_exists LIBRARY_PATH "$HOME/.local/lib"
+    prepend_path_if_exists LD_LIBRARY_PATH "$HOME/.local/lib64"
     prepend_path_if_exists LD_LIBRARY_PATH "$HOME/.local/lib"
+
     prepend_path_if_exists C_INCLUDE_PATH "$HOME/.local/include"
     prepend_path_if_exists CPLUS_INCLUDE_PATH "$HOME/.local/include"
 fi

@@ -108,7 +108,7 @@ nnoremap <C-P> :FZF<CR>
 " YouCompleteMe
 let g:ycm_auto_hover = ''
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_clangd_args=['--header-insertion=never']
+let g:ycm_clangd_args = ['--header-insertion=never']
 if v:version >= 800
     let g:ycm_clangd_binary_path = exepath('clangd')
 else
@@ -126,7 +126,8 @@ let g:ycm_filetype_blacklist = {
     \}
 
 nnoremap <silent> gd :YcmCompleter GoTo<CR>
-nnoremap <silent> gr :YcmCompleter GoToReferences<CR>
+nnoremap <silent> <leader>r :YcmCompleter GoToReferences<CR>
+nnoremap <silent> <leader>t :YcmCompleter GetType<CR>
 
 " ALE
 

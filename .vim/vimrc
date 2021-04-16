@@ -88,10 +88,11 @@ autocmd Syntax c,cpp,python normal zR
 let g:airline_theme='base16_default_dark'
 
 " NERDTree
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeCaseSensitiveSort = 1
+let g:NERDTreeMapJumpNextSibling = ''
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 50
-let NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeMapJumpNextSibling = ''
 
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 noremap <silent> <F1> :NERDTreeFocus<CR>

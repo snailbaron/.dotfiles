@@ -16,7 +16,7 @@ set autoread
 set backspace=indent,eol,start
 set colorcolumn=81
 if v:version >= 800
-    set completeopt=menu,menuone,preview,noselect,noinsert
+    set completeopt=menu,menuone,popup,noselect
 else
     set completeopt=menu,menuone,preview
 endif

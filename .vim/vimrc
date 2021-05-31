@@ -53,18 +53,6 @@ set langmap=
     \ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж:,Э\\",
     \ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б<,Ю>
 
-" If cursor is on first or last line of the window, scroll to put current line
-" in the middle.
-function! CenterOnCursorIfOnEdge()
-    let cursor_line = winline()
-    if cursor_line == 1 || cursor_line == winheight(0)
-        normal! zz
-    endif
-endfunction
-
-nnoremap <silent> <C-]>:call CenterOnCursorIfOnEdge()<CR>
-nnoremap <silent> n n:call CenterOnCursorIfOnEdge()<CR>
-
 nnoremap <leader>l :set list!<CR>
 
 " Process new buffer creation

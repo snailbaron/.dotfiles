@@ -1,6 +1,8 @@
 filetype indent off
 filetype plugin on
 
+"let g:loaded_youcompleteme = 1
+
 syntax enable
 
 colorscheme base16-default-dark

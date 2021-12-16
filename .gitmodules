@@ -40,3 +40,6 @@
 [submodule ".vim/pack/snailbaron/start/ack.vim"]
 	path = .vim/pack/snailbaron/start/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule ".config/mpv/scripts/subs2srs"]
+	path = .config/mpv/scripts/subs2srs
+	url = https://github.com/Ajatt-Tools/mpvacious.git

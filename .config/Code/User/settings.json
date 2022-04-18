@@ -8,5 +8,11 @@
     ],
     "editor.fontFamily": "Hack, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.minimap.enabled": false,
-    "keyboard.dispatch": "keyCode"
+    "keyboard.dispatch": "keyCode",
+    "workbench.colorTheme": "Base16 Default Dark",
+    "editor.lineHeight": 1.4,
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "python.venvPath": "~/.venv"
 }

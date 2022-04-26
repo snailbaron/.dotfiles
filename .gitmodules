@@ -43,3 +43,6 @@
 [submodule ".config/mpv/scripts/subs2srs"]
 	path = .config/mpv/scripts/subs2srs
 	url = https://github.com/Ajatt-Tools/mpvacious.git
+[submodule ".vim/pack/snailbaron/start/vim-dispatch"]
+	path = .vim/pack/snailbaron/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git

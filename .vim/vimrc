@@ -140,7 +140,7 @@ let g:ale_echo_msg_format = '[%linter%] [%severity%] (%code%) %s'
 
 let g:ale_linters = {
 \   'cpp': [],
-\   'python': ['pylint'],
+\   'python': ['flake8', 'pylint', 'mypy'],
 \ }
 
 let g:ale_fixers = {
@@ -246,3 +246,7 @@ if v:version > 800 || v:version == 800 && has("patch587")
 endif
 
 silent! helptags ALL
+
+if filereadable(expand("~/.vimrc_local"))
+    source ~/.vimrc_local
+endif

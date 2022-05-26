@@ -46,3 +46,6 @@
 [submodule ".vim/pack/snailbaron/start/vim-dispatch"]
 	path = .vim/pack/snailbaron/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule ".vim/pack/snailbaron/start/vim-polyglot"]
+	path = .vim/pack/snailbaron/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git

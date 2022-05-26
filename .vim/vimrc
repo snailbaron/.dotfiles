@@ -33,16 +33,17 @@ set formatoptions+=j
 set history=1000
 set hlsearch
 set incsearch
-set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:+,eol:¬
+set listchars=tab:▸\ ,lead:·,trail:·,extends:>,precedes:<,nbsp:+,eol:¬
 set mouse=a
 set nobackup
 set nocindent
 set nosmartindent
 set number
 set shiftwidth=4
+set softtabstop=4
 set splitbelow
 set splitright
-set tabstop=4
+set tabstop=8
 set timeoutlen=1000 ttimeoutlen=0
 set ttymouse=xterm2  " makes mouse play nice with tmux
 set wildmenu
@@ -72,7 +73,8 @@ function! OnBufferOpen()
     endif
 endfunction
 
-autocmd FileType html,xml,fbs,yaml setlocal tabstop=2 shiftwidth=2
+autocmd FileType html,xml,fbs,yaml setlocal ts=8 sts=2 sw=2 expandtab
+autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 
 " vim-airline
 let g:airline_theme='base16_default_dark'

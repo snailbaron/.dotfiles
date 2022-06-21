@@ -1,5 +1,4 @@
-filetype indent off
-filetype plugin on
+filetype plugin indent on
 
 "let g:loaded_youcompleteme = 1
 "let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
@@ -150,6 +149,9 @@ let g:ale_fixers = {
 \ }
 
 " let g:ale_fix_on_save = 1
+
+" vim-polyglot
+let g:polyglot_disabled = ['autoindent']
 
 " vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1

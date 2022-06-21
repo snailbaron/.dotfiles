@@ -151,7 +151,7 @@ let g:ale_fixers = {
 " let g:ale_fix_on_save = 1
 
 " vim-polyglot
-let g:polyglot_disabled = ['autoindent']
+let g:polyglot_disabled = ['sensible']
 
 " vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1

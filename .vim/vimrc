@@ -137,13 +137,23 @@ let g:ycm_filetype_blacklist = {
     \ 'nerdtree': 1
     \}
 
-inoremap <C-l> <plug>(YCMToggleSignatureHelp)
+let g:ycm_language_server =
+    \ [
+    \   {
+    \     'name': 'cmake',
+    \     'cmdline': [ 'cmake-language-server' ],
+    \     'filetypes': [ 'cmake' ]
+    \   }
+    \ ]
+
+nnoremap <silent> gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <leader>r :YcmCompleter GoToReferences<CR>
 nnoremap <silent> <leader>t :YcmCompleter GoToType<CR>
 nnoremap <silent> gd :YcmCompleter GoTo<CR>
 nnoremap <silent> K <plug>(YCMHover)
 nnoremap <leader>f <plug>(YCMFindSymbolInDocument)
 nnoremap <leader>F <plug>(YCMFindSymbolInWorkspace)
+inoremap <C-l> <plug>(YCMToggleSignatureHelp)
 
 " Python virtual environment
 

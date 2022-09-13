@@ -1,6 +1,3 @@
-[submodule ".fzf"]
-	path = .fzf
-	url = https://github.com/junegunn/fzf.git
 [submodule ".config/base16-gnome-terminal"]
 	path = .config/base16-gnome-terminal
 	url = https://github.com/aaron-williamson/base16-gnome-terminal.git

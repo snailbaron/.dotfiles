@@ -4,6 +4,7 @@ call plug#begin()
     Plug 'https://github.com/dawikur/base16-vim-airline-themes.git'
     " Plug 'https://github.com/dense-analysis/ale.git'
     Plug 'https://github.com/gerw/vim-HiLinkTrace.git'
+    Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'https://github.com/preservim/nerdtree.git'
     " Plug 'https://github.com/sheerun/vim-polyglot.git'
     Plug 'https://github.com/tpope/vim-dispatch.git'
@@ -28,8 +29,6 @@ highlight SpellLocal cterm=None ctermfg=0 ctermbg=12
 highlight SpellCap   cterm=None ctermfg=0 ctermbg=13
 highlight SpellRare  cterm=None ctermfg=0 ctermbg=14
 
-set rtp+=~/.fzf
-
 set autoindent
 set autoread
 set backspace=indent,eol,start
@@ -44,7 +43,7 @@ set encoding=utf-8
 set expandtab
 set fillchars=vert:│,fold:-
 set foldlevel=99
-set foldmethod=syntax
+set foldmethod=manual
 set formatoptions+=j
 set history=1000
 set hlsearch
@@ -130,7 +129,7 @@ let g:ycm_clangd_uses_ycmd_caching = 0
 let g:ycm_enable_semantic_highlighting = 1
 let g:ycm_extra_conf_globlist = ['!~/*']
 let g:ycm_global_ycm_extra_conf = '~/.global_ycm_extra_conf.py'
-" let g:ycm_min_num_of_chars_for_completion = 99
+let g:ycm_min_num_of_chars_for_completion = 99
 let g:ycm_warning_symbol = '~>'
 
 let g:ycm_filetype_blacklist = {

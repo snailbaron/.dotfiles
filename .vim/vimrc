@@ -4,7 +4,8 @@ call plug#begin()
     Plug 'https://github.com/dawikur/base16-vim-airline-themes.git'
     " Plug 'https://github.com/dense-analysis/ale.git'
     Plug 'https://github.com/gerw/vim-HiLinkTrace.git'
-    Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'https://github.com/junegunn/fzf',
+        \ { 'do': { -> fzf#install() } }
     Plug 'https://github.com/preservim/nerdtree.git'
     " Plug 'https://github.com/sheerun/vim-polyglot.git'
     Plug 'https://github.com/tpope/vim-dispatch.git'
@@ -145,14 +146,16 @@ let g:ycm_language_server =
     \   }
     \ ]
 
-nnoremap <silent> gd :YcmCompleter GoTo<CR>
-nnoremap <silent> <leader>r :YcmCompleter GoToReferences<CR>
-nnoremap <silent> <leader>t :YcmCompleter GoToType<CR>
-nnoremap <silent> gd :YcmCompleter GoTo<CR>
-nnoremap <silent> K <plug>(YCMHover)
-nnoremap <leader>f <plug>(YCMFindSymbolInDocument)
-nnoremap <leader>F <plug>(YCMFindSymbolInWorkspace)
 inoremap <C-l> <plug>(YCMToggleSignatureHelp)
+nnoremap <leader>F <plug>(YCMFindSymbolInWorkspace)
+nnoremap <leader>f <plug>(YCMFindSymbolInDocument)
+nnoremap <leader>r :YcmCompleter GoToReferences<CR>
+nnoremap <leader>R <cmd>execute 'YcmCompleter RefactorRename ' input('YCM Rename To: ')<CR>
+nnoremap <leader>t :YcmCompleter GoToType<CR>
+nnoremap <leader>a <cmd>YcmCompleter FixIt<CR>
+nnoremap <silent> K <plug>(YCMHover)
+nnoremap <silent> gd :YcmCompleter GoTo<CR>
+nnoremap <silent> gd :YcmCompleter GoTo<CR>
 
 " Python virtual environment
 
@@ -191,7 +194,6 @@ nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
 " Seamless resize in Vim/tmux
 let g:tmux_resize_vertical_step = 3

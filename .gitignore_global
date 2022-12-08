@@ -16,3 +16,4 @@ ycm_*.py
 /build
 /build-debug
 /build-release
+/build-sanitize

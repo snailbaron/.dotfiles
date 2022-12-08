@@ -2,7 +2,7 @@ call plug#begin()
     Plug 'https://github.com/chriskempson/base16-vim.git'
     Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
     Plug 'https://github.com/dawikur/base16-vim-airline-themes.git'
-    " Plug 'https://github.com/dense-analysis/ale.git'
+    Plug 'https://github.com/dense-analysis/ale.git'
     Plug 'https://github.com/gerw/vim-HiLinkTrace.git'
     Plug 'https://github.com/junegunn/fzf',
         \ { 'do': { -> fzf#install() } }
@@ -17,7 +17,8 @@ call plug#begin()
     Plug 'https://github.com/zchee/vim-flatbuffers.git'
 call plug#end()
 
-filetype plugin indent on
+filetype plugin on
+filetype indent off
 
 "let g:loaded_youcompleteme = 1
 "let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
@@ -152,6 +153,7 @@ nnoremap <leader>f <plug>(YCMFindSymbolInDocument)
 nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 nnoremap <leader>R <cmd>execute 'YcmCompleter RefactorRename ' input('YCM Rename To: ')<CR>
 nnoremap <leader>t :YcmCompleter GoToType<CR>
+nnoremap <leader>A <cmd>YcmCompleter Format<CR>
 nnoremap <leader>a <cmd>YcmCompleter FixIt<CR>
 nnoremap <silent> K <plug>(YCMHover)
 nnoremap <silent> gd :YcmCompleter GoTo<CR>
@@ -172,10 +174,12 @@ endfunction
 
 " ALE
 
+let g:ale_disable_lsp = 1
 let g:ale_echo_msg_format = '[%linter%] [%severity%] (%code%) %s'
 
 let g:ale_linters = {
 \   'cpp': [],
+\   'proto': ['buf_lint', 'protolint'],
 \   'python': ['flake8', 'pylint', 'mypy'],
 \ }
 
@@ -257,6 +261,10 @@ nnoremap <silent> <Esc>k :TmuxResizeUp<CR>
 
 " Terminal mode and termdebug
 packadd termdebug
+
+let g:termdebug_config = {
+    \ 'wide': 1
+    \ }
 
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert

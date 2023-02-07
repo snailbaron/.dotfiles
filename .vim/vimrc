@@ -7,7 +7,6 @@ call plug#begin()
     Plug 'https://github.com/junegunn/fzf',
         \ { 'do': { -> fzf#install() } }
     Plug 'https://github.com/preservim/nerdtree.git'
-    " Plug 'https://github.com/sheerun/vim-polyglot.git'
     Plug 'https://github.com/tpope/vim-dispatch.git'
     Plug 'https://github.com/tpope/vim-unimpaired.git'
     Plug 'https://github.com/tpope/vim-vinegar.git'
@@ -272,9 +271,9 @@ autocmd BufLeave term://* stopinsert
 hi debugPC term=reverse ctermbg=11 guibg=lightblue
 hi debugBreakpoint term=reverse ctermbg=1 guibg=red
 
-nmap <silent> <F5> :Continue<CR>
+nmap <silent> <F5> :Run<CR>
 nmap <silent> <F9> :Break<CR>
-nmap <silent> <S-F9> :Delete<CR>
+nmap <silent> <S-F9> :Clear<CR>
 nmap <silent> <F11> :Step<CR>
 nmap <silent> <F10> :Over<CR>
 nmap <silent> <S-F7> :Finish<CR>
@@ -296,6 +295,10 @@ tnoremap <silent> <Esc>j <C-w>:TmuxResizeDown<CR>
 tnoremap <silent> <Esc>k <C-w>:TmuxResizeUp<CR>
 
 silent! helptags ALL
+
+let g:termdebug_config = {
+\   'wide': 1
+\ }
 
 if filereadable(expand("~/.vimrc_local"))
     source ~/.vimrc_local

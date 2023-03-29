@@ -1,18 +1,31 @@
+---
+If:
+  PathMatch: ~/a
 Diagnostics:
   UnusedIncludes: Strict
   ClangTidy:
     Add:
       - bugprone-*
+      - bugprone-use-after-move
       - clang-analyzer-*
       - concurrency-*
       - cppcoreguidelines-*
-      - hicpp-*
       - misc-*
       - modernize-*
       - performance-*
       - portability-*
       - readability-*
     Remove:
+      - cppcoreguidelines-avoid-c-arrays
       - cppcoreguidelines-avoid-magic-numbers
+      - cppcoreguidelines-pro-bounds-constant-array-index
+      - misc-non-private-member-variables-in-classes
+      - modernize-avoid-c-arrays
+      - modernize-use-nodiscard
       - modernize-use-trailing-return-type
+      - readability-function-cognitive-complexity
+      - readability-identifier-length
+      - readability-implicit-bool-conversion
       - readability-magic-numbers
+      - readability-qualified-auto
+---

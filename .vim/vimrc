@@ -14,6 +14,8 @@ call plug#begin()
     Plug 'https://github.com/ycm-core/YouCompleteMe.git',
         \ { 'do': './install.py --clangd-completer --ts-completer' }
     Plug 'https://github.com/zchee/vim-flatbuffers.git'
+    Plug 'joshdick/onedark.vim'
+    Plug 'kaicataldo/material.vim'
 call plug#end()
 
 filetype plugin on
@@ -23,12 +25,16 @@ filetype indent off
 "let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
 
 syntax enable
+set termguicolors
 
-colorscheme base16-default-dark
-highlight SpellBad   cterm=None ctermfg=0 ctermbg=1
-highlight SpellLocal cterm=None ctermfg=0 ctermbg=12
-highlight SpellCap   cterm=None ctermfg=0 ctermbg=13
-highlight SpellRare  cterm=None ctermfg=0 ctermbg=14
+let g:material_theme_style = 'darker'
+colorscheme material
+
+" colorscheme base16-default-dark
+" highlight SpellBad   cterm=None ctermfg=0 ctermbg=1
+" highlight SpellLocal cterm=None ctermfg=0 ctermbg=12
+" highlight SpellCap   cterm=None ctermfg=0 ctermbg=13
+" highlight SpellRare  cterm=None ctermfg=0 ctermbg=14
 
 set autoindent
 set autoread
@@ -93,6 +99,10 @@ autocmd FileType c,cpp setlocal ts=8 sts=4 sw=4 expandtab
 autocmd FileType html,xml,fbs,yaml setlocal ts=8 sts=2 sw=2 expandtab
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 
+autocmd FileType cpp setlocal matchpairs=(:),{:},[:],<:>
+
+packadd! matchit
+
 " vim-airline
 let g:airline_theme='base16_default_dark'
 
@@ -131,7 +141,7 @@ let g:ycm_enable_semantic_highlighting = 1
 let g:ycm_extra_conf_globlist = ['!~/*']
 let g:ycm_global_ycm_extra_conf = '~/.global_ycm_extra_conf.py'
 let g:ycm_min_num_of_chars_for_completion = 99
-let g:ycm_warning_symbol = '~>'
+"let g:ycm_warning_symbol = '~>'
 
 let g:ycm_filetype_blacklist = {
     \ 'nerdtree': 1
@@ -142,8 +152,8 @@ let g:ycm_language_server =
     \   {
     \     'name': 'cmake',
     \     'cmdline': [ 'cmake-language-server' ],
-    \     'filetypes': [ 'cmake' ]
-    \   }
+    \     'filetypes': [ 'cmake' ],
+    \   },
     \ ]
 
 inoremap <C-l> <plug>(YCMToggleSignatureHelp)
@@ -185,6 +195,8 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ }
+
+let g:ale_python_flake8_options = '--ignore=E501'
 
 " let g:ale_fix_on_save = 1
 

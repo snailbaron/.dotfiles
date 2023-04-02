@@ -12,7 +12,7 @@ call plug#begin()
     Plug 'https://github.com/tpope/vim-vinegar.git'
     Plug 'https://github.com/vim-airline/vim-airline.git'
     Plug 'https://github.com/ycm-core/YouCompleteMe.git',
-        \ { 'do': './install.py --clangd-completer --ts-completer' }
+        \ { 'do': './install.py --clangd-completer' }
     Plug 'https://github.com/zchee/vim-flatbuffers.git'
     Plug 'joshdick/onedark.vim'
     Plug 'kaicataldo/material.vim'
@@ -190,6 +190,7 @@ let g:ale_linters = {
 \   'cpp': [],
 \   'proto': ['buf_lint', 'protolint'],
 \   'python': ['flake8', 'pylint', 'mypy'],
+\   'yaml': [],
 \ }
 
 let g:ale_fixers = {

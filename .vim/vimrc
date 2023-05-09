@@ -186,7 +186,10 @@ let g:ale_disable_lsp = 1
 let g:ale_echo_msg_format = '[%linter%] [%severity%] (%code%) %s'
 
 let g:ale_linters = {
+\   'c': [],
 \   'cpp': [],
+\   'json': [],
+\   'php': [],
 \   'proto': ['buf_lint', 'protolint'],
 \   'python': ['flake8', 'pylint', 'mypy'],
 \   'yaml': [],

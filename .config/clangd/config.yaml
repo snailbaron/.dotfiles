@@ -1,6 +1,4 @@
 ---
-If:
-  PathMatch: ~/a
 Diagnostics:
   UnusedIncludes: Strict
   ClangTidy:
@@ -18,7 +16,11 @@ Diagnostics:
     Remove:
       - cppcoreguidelines-avoid-c-arrays
       - cppcoreguidelines-avoid-magic-numbers
+      - cppcoreguidelines-avoid-non-const-global-variables
+      - cppcoreguidelines-pro-bounds-array-to-pointer-decay
       - cppcoreguidelines-pro-bounds-constant-array-index
+      - cppcoreguidelines-pro-type-const-cast
+      - cppcoreguidelines-pro-type-reinterpret-cast
       - misc-non-private-member-variables-in-classes
       - modernize-avoid-c-arrays
       - modernize-use-nodiscard
@@ -28,4 +30,5 @@ Diagnostics:
       - readability-implicit-bool-conversion
       - readability-magic-numbers
       - readability-qualified-auto
+      - readability-uppercase-literal-suffix
 ---

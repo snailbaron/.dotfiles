@@ -274,47 +274,48 @@ nnoremap <silent> <Esc>l :TmuxResizeRight<CR>
 nnoremap <silent> <Esc>j :TmuxResizeDown<CR>
 nnoremap <silent> <Esc>k :TmuxResizeUp<CR>
 
-" Terminal mode and termdebug
-packadd termdebug
+if has('terminal')
+    packadd termdebug
 
-let g:termdebug_config = {
-    \ 'wide': 1
+    let g:termdebug_config = {
+        \ 'wide': 1
+        \ }
+
+    autocmd BufWinEnter,WinEnter term://* startinsert
+    autocmd BufLeave term://* stopinsert
+
+    hi debugPC term=reverse ctermbg=11 guibg=lightblue
+    hi debugBreakpoint term=reverse ctermbg=1 guibg=red
+
+    nmap <silent> <F5> :Run<CR>
+    nmap <silent> <F9> :Break<CR>
+    nmap <silent> <S-F9> :Clear<CR>
+    nmap <silent> <F11> :Step<CR>
+    nmap <silent> <F10> :Over<CR>
+    nmap <silent> <S-F7> :Finish<CR>
+
+    tnoremap <silent> <C-h> <C-w>:TmuxNavigateLeft<cr>
+    tnoremap <silent> <C-j> <C-w>:TmuxNavigateDown<cr>
+    tnoremap <silent> <C-k> <C-w>:TmuxNavigateUp<cr>
+    tnoremap <silent> <C-l> <C-w>:TmuxNavigateRight<cr>
+    "tnoremap <silent> <C-\> <C-w>:TmuxNavigatePrevious<cr>
+
+    tnoremap <silent> <M-h> <C-w>:TmuxResizeLeft<CR>
+    tnoremap <silent> <M-l> <C-w>:TmuxResizeRight<CR>
+    tnoremap <silent> <M-j> <C-w>:TmuxResizeDown<CR>
+    tnoremap <silent> <M-k> <C-w>:TmuxResizeUp<CR>
+
+    tnoremap <silent> <Esc>h <C-w>:TmuxResizeLeft<CR>
+    tnoremap <silent> <Esc>l <C-w>:TmuxResizeRight<CR>
+    tnoremap <silent> <Esc>j <C-w>:TmuxResizeDown<CR>
+    tnoremap <silent> <Esc>k <C-w>:TmuxResizeUp<CR>
+
+    let g:termdebug_config = {
+    \   'wide': 1
     \ }
-
-autocmd BufWinEnter,WinEnter term://* startinsert
-autocmd BufLeave term://* stopinsert
-
-hi debugPC term=reverse ctermbg=11 guibg=lightblue
-hi debugBreakpoint term=reverse ctermbg=1 guibg=red
-
-nmap <silent> <F5> :Run<CR>
-nmap <silent> <F9> :Break<CR>
-nmap <silent> <S-F9> :Clear<CR>
-nmap <silent> <F11> :Step<CR>
-nmap <silent> <F10> :Over<CR>
-nmap <silent> <S-F7> :Finish<CR>
-
-tnoremap <silent> <C-h> <C-w>:TmuxNavigateLeft<cr>
-tnoremap <silent> <C-j> <C-w>:TmuxNavigateDown<cr>
-tnoremap <silent> <C-k> <C-w>:TmuxNavigateUp<cr>
-tnoremap <silent> <C-l> <C-w>:TmuxNavigateRight<cr>
-"tnoremap <silent> <C-\> <C-w>:TmuxNavigatePrevious<cr>
-
-tnoremap <silent> <M-h> <C-w>:TmuxResizeLeft<CR>
-tnoremap <silent> <M-l> <C-w>:TmuxResizeRight<CR>
-tnoremap <silent> <M-j> <C-w>:TmuxResizeDown<CR>
-tnoremap <silent> <M-k> <C-w>:TmuxResizeUp<CR>
-
-tnoremap <silent> <Esc>h <C-w>:TmuxResizeLeft<CR>
-tnoremap <silent> <Esc>l <C-w>:TmuxResizeRight<CR>
-tnoremap <silent> <Esc>j <C-w>:TmuxResizeDown<CR>
-tnoremap <silent> <Esc>k <C-w>:TmuxResizeUp<CR>
+endif
 
 silent! helptags ALL
-
-let g:termdebug_config = {
-\   'wide': 1
-\ }
 
 if filereadable(expand("~/.vimrc_local"))
     source ~/.vimrc_local

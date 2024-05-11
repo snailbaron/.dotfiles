@@ -3,6 +3,13 @@
 .clang
 .clangd/
 .netrwhist
+.vs/
+/CMakeSettings.json
+/build
+/build-debug
+/build-release
+/build-sanitize
+/out/
 GPATH
 GRTAGS
 GSYMS
@@ -13,7 +20,3 @@ tags
 tags.lock
 tags.temp
 ycm_*.py
-/build
-/build-debug
-/build-release
-/build-sanitize

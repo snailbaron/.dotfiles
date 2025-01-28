@@ -10,6 +10,3 @@
 	excludesFile = ~/.gitignore_global
 [init]
 	defaultBranch = main
-[user]
-	name = snailbaron
-	email = snailbaron@gmail.com

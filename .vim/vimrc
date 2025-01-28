@@ -81,6 +81,7 @@ set langmap=
     \ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б<,Ю>
 
 nnoremap <leader>l :set list!<CR>
+vnoremap <leader>s :sort<CR>
 
 " Process new buffer creation
 autocmd BufNewFile,BufRead * call OnBufferOpen()
@@ -153,6 +154,11 @@ let g:ycm_language_server =
     \     'cmdline': [ 'cmake-language-server' ],
     \     'filetypes': [ 'cmake' ],
     \   },
+    \   {
+    \     'name': 'yaml',
+    \     'cmdline': [ 'yaml-language-server', '--stdio' ],
+    \     'filetypes': [ 'yaml' ],
+    \   },
     \ ]
 
 inoremap <C-l> <plug>(YCMToggleSignatureHelp)
@@ -198,6 +204,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'yaml': ['prettier'],
 \ }
 
 let g:ale_python_flake8_options = '--ignore=E501'

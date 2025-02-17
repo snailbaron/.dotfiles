@@ -11,8 +11,10 @@ call plug#begin()
     Plug 'https://github.com/tpope/vim-unimpaired.git'
     Plug 'https://github.com/tpope/vim-vinegar.git'
     Plug 'https://github.com/vim-airline/vim-airline.git'
-    Plug 'https://github.com/ycm-core/YouCompleteMe.git',
-        \ { 'do': './install.py --clangd-completer' }
+    if has('patch-9.1.016')
+        Plug 'https://github.com/ycm-core/YouCompleteMe.git',
+            \ { 'do': './install.py --clangd-completer' }
+    endif
     Plug 'https://github.com/zchee/vim-flatbuffers.git'
     Plug 'https://github.com/kaicataldo/material.vim'
 call plug#end()
@@ -24,7 +26,10 @@ filetype indent off
 "let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
 
 syntax enable
-set termguicolors
+if v:version >= 900
+    " I don't know why termguicolors messes up older Vim, and I don't care
+    set termguicolors
+endif
 
 let g:material_theme_style = 'darker'
 colorscheme material

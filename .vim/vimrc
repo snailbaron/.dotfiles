@@ -51,6 +51,7 @@ else
     set completeopt=menu,menuone,preview
 endif
 set cursorline
+set directory=~/.cache/vimswap//,.,~/tmp,/var/tmp,/tmp
 set encoding=utf-8
 set expandtab
 set fillchars=vert:│,fold:-

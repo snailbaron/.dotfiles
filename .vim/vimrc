@@ -11,6 +11,7 @@ call plug#begin()
     Plug 'https://github.com/tpope/vim-unimpaired.git'
     Plug 'https://github.com/tpope/vim-vinegar.git'
     Plug 'https://github.com/vim-airline/vim-airline.git'
+    Plug 'https://github.com/bazelbuild/vim-bazel.git'
     if has('patch-9.1.016')
         Plug 'https://github.com/ycm-core/YouCompleteMe.git',
             \ { 'do': './install.py --clangd-completer' }
@@ -209,10 +210,13 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'bzl': ['buildifier'],
 \   'yaml': ['prettier'],
 \ }
 
 let g:ale_python_flake8_options = '--ignore=E501'
+
+nnoremap <silent> <leader>x :ALEFix<cr>
 
 " let g:ale_fix_on_save = 1
 

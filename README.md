@@ -9,6 +9,7 @@ config config status.showUntrackedFiles no
 config config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 config fetch
 config checkout master
+config submodule update --init --recursive
 ```
 
 Might want to use a separate private key for this repo specifically:

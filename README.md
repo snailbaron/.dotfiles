@@ -15,3 +15,8 @@ Might want to use a separate private key for this repo specifically:
 ```
 config config --local core.sshCommand 'ssh -i ~/.ssh/<personal private key>'
 ```
+
+For pushing via ssh:
+```
+config remote set-url --push origin git@github.com:snailbaron/.dotfiles.git
+```

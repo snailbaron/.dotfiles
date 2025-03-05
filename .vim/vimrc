@@ -148,6 +148,11 @@ let g:ycm_enable_semantic_highlighting = 1
 let g:ycm_extra_conf_globlist = ['!~/*']
 let g:ycm_global_ycm_extra_conf = '~/.global_ycm_extra_conf.py'
 let g:ycm_min_num_of_chars_for_completion = 99
+
+let g:ycm_semantic_triggers = {
+\   'python': ['re!\w+'],
+\ }
+
 "let g:ycm_warning_symbol = '~>'
 
 let g:ycm_filetype_blacklist = {
@@ -160,6 +165,16 @@ let g:ycm_language_server =
     \     'name': 'cmake',
     \     'cmdline': [ 'cmake-language-server' ],
     \     'filetypes': [ 'cmake' ],
+    \   },
+    \   {
+    \     'name': 'json',
+    \     'cmdline': [ 'vscode-json-languageserver', '--stdio' ],
+    \     'filetypes': [ 'json' ],
+    \   },
+    \   {
+    \     'name': 'nix',
+    \     'cmdline': [ 'nixd' ],
+    \     'filetypes': [ 'nix' ],
     \   },
     \   {
     \     'name': 'yaml',
@@ -212,10 +227,13 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'bzl': ['buildifier'],
+\   'python': ['black', 'isort'],
 \   'yaml': ['prettier'],
 \ }
 
-let g:ale_python_flake8_options = '--ignore=E501'
+let g:ale_python_mypy_options = '--strict'
+let g:ale_python_flake8_options = '--ignore=E203,E501,E701,E704 --extend-select=B950 --max-line-length=80'
+let g:ale_python_isort_options = '--profile black'
 
 nnoremap <silent> <leader>x :ALEFix<cr>
 

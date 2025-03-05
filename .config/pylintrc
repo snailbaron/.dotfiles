@@ -1,0 +1,10 @@
+[MAIN]
+disable = missing-class-docstring,
+          missing-function-docstring,
+          missing-module-docstring,
+          too-many-instance-attributes,
+          too-many-arguments,
+          no-value-for-parameter
+
+[format]
+max-line-length = 88

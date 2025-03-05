@@ -4,6 +4,7 @@
 	hist = log --all --tags --graph --decorate --oneline
 [push]
 	default = simple
+	autoSetupRemote = true
 [pull]
 	ff = only
 [core]

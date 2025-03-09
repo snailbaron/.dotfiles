@@ -1,4 +1,6 @@
+*.bak
 *.swp
+*.tiled-session
 .cache/
 .clang
 .clangd/

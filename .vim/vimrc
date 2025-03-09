@@ -1,12 +1,16 @@
 call plug#begin()
+    Plug 'https://github.com/bazelbuild/vim-bazel'
     Plug 'https://github.com/chriskempson/base16-vim.git'
     Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
     Plug 'https://github.com/dawikur/base16-vim-airline-themes.git'
     Plug 'https://github.com/dense-analysis/ale.git'
     Plug 'https://github.com/gerw/vim-HiLinkTrace.git'
+    Plug 'https://github.com/google/vim-maktaba'
     Plug 'https://github.com/junegunn/fzf',
         \ { 'do': { -> fzf#install() } }
+    Plug 'https://github.com/kaicataldo/material.vim'
     Plug 'https://github.com/preservim/nerdtree.git'
+    Plug 'https://github.com/tikhomirov/vim-glsl'
     Plug 'https://github.com/tpope/vim-dispatch.git'
     Plug 'https://github.com/tpope/vim-unimpaired.git'
     Plug 'https://github.com/tpope/vim-vinegar.git'
@@ -17,7 +21,6 @@ call plug#begin()
             \ { 'do': './install.py --clangd-completer' }
     endif
     Plug 'https://github.com/zchee/vim-flatbuffers.git'
-    Plug 'https://github.com/kaicataldo/material.vim'
 call plug#end()
 
 filetype plugin on
@@ -216,6 +219,7 @@ let g:ale_virtualtext_cursor = 'current'
 
 let g:ale_linters = {
 \   'c': [],
+\   'cmake': [],
 \   'cpp': [],
 \   'json': [],
 \   'php': [],

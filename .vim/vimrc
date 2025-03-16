@@ -155,6 +155,7 @@ let g:ycm_global_ycm_extra_conf = '~/.global_ycm_extra_conf.py'
 let g:ycm_min_num_of_chars_for_completion = 99
 
 let g:ycm_semantic_triggers = {
+\   'cmake': ['re!\w+'],
 \   'python': ['re!\w+'],
 \ }
 
@@ -175,6 +176,15 @@ let g:ycm_language_server =
     \     'name': 'json',
     \     'cmdline': [ 'vscode-json-languageserver', '--stdio' ],
     \     'filetypes': [ 'json' ],
+    \     'capabilities': {
+    \       'textDocument': {
+    \         'completion': {
+    \           'completionItem': {
+    \             'snippetSupport': v:true
+    \           }
+    \         }
+    \       }
+    \   },
     \   },
     \   {
     \     'name': 'nix',

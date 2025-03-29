@@ -2,9 +2,10 @@
 disable = missing-class-docstring,
           missing-function-docstring,
           missing-module-docstring,
-          too-many-instance-attributes,
+          no-value-for-parameter,
+          too-few-public-methods,
           too-many-arguments,
-          no-value-for-parameter
+          too-many-instance-attributes
 
 [format]
 max-line-length = 88

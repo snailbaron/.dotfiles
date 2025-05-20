@@ -1,19 +1,23 @@
 {
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "workbench.startupEditor": "newUntitledFile",
-    "window.zoomLevel": 0,
-    "editor.rulers": [
-        80
-    ],
-    "editor.fontFamily": "Hack, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.minimap.enabled": false,
-    "keyboard.dispatch": "keyCode",
-    "workbench.colorTheme": "Material Theme Darker",
-    "editor.lineHeight": 1.4,
-    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": true,
-    "python.venvPath": "~/.venv",
-    "editor.unicodeHighlight.nonBasicASCII": false
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "window.zoomLevel": 0,
+  "editor.rulers": [80],
+  "editor.fontFamily": "Hack, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.minimap.enabled": false,
+  "keyboard.dispatch": "keyCode",
+  "workbench.colorTheme": "Material Theme Darker",
+  "editor.lineHeight": 1.4,
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "files.insertFinalNewline": true,
+  "python.venvPath": "~/.venv",
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.fontSize": 13,
+  "files.trimTrailingWhitespace": true,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "git.blame.editorDecoration.enabled": false,
+  "git.blame.statusBarItem.enabled": true
 }

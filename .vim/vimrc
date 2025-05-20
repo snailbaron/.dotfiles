@@ -81,6 +81,11 @@ set wildmenu
 set wildmode=longest:full
 set writebackup
 
+if executable('ag')
+    set grepprg=ag\ --hidden\ --vimgrep\ $*
+    set grepformat=%f:%l:%c:%m
+endif
+
 set langmap=
     \ё`,Ё~,
     \йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],
@@ -106,12 +111,10 @@ function! OnBufferOpen()
 endfunction
 
 autocmd FileType c,cpp setlocal ts=8 sts=4 sw=4 expandtab
-autocmd FileType html,xml,fbs,yaml setlocal ts=8 sts=2 sw=2 expandtab
+autocmd FileType html,xml,fbs setlocal ts=8 sts=2 sw=2 expandtab
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
 
 autocmd FileType cpp setlocal matchpairs=(:),{:},[:],<:>
-
-autocmd FileType yaml setlocal iskeyword+=-
 
 packadd! matchit
 
@@ -124,6 +127,7 @@ let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeMapJumpNextSibling = ''
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 50
+let g:NERDTreeShowHidden = 1
 
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 noremap <silent> <F1> :NERDTreeFocus<CR>
@@ -167,6 +171,16 @@ let g:ycm_filetype_blacklist = {
 
 let g:ycm_language_server =
     \ [
+    \   {
+    \     'name': 'bash',
+    \     'cmdline': [ 'bash-language-server', 'start' ],
+    \     'filetypes': [ 'sh' ],
+    \   },
+    \   {
+    \     'name': 'bzl',
+    \     'cmdline': [ 'starpls' ],
+    \     'filetypes': [ 'bzl' ],
+    \   },
     \   {
     \     'name': 'cmake',
     \     'cmdline': [ 'cmake-language-server' ],
@@ -233,24 +247,31 @@ let g:ale_linters = {
 \   'c': [],
 \   'cmake': [],
 \   'cpp': [],
-\   'json': [],
+\   'json': ['jq'],
 \   'nix': ['nixpkgs-fmt'],
 \   'php': [],
 \   'proto': ['buf_lint', 'protolint'],
 \   'python': ['flake8', 'pylint', 'mypy'],
-\   'yaml': [],
+\   'yaml': ['yaml-language-server', 'yamllint', 'yq'],
 \ }
+
+autocmd BufRead,BufNewFile .github/workflows/*.yaml
+    \ let b:ale_linters = ['actionlint', 'yaml-language-server', 'yamllint', 'yq']
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines'],
 \   'bzl': ['buildifier'],
+\   'cpp': ['clang-format'],
+\   'json': ['jq'],
 \   'python': ['black', 'isort'],
-\   'yaml': ['prettier'],
+\   'sh': ['shfmt'],
 \ }
 
-let g:ale_python_mypy_options = '--strict'
+let g:ale_python_mypy_options = '--strict --python-executable=python3'
 let g:ale_python_flake8_options = '--ignore=E203,E501,E701,E704,W503 --extend-select=B950 --max-line-length=88'
 let g:ale_python_isort_options = '--profile black'
+let g:ale_json_jq_options = '--indent 4'
+let g:ale_sh_bashate_options = '-i E003'
 
 nnoremap <silent> <leader>x :ALEFix<cr>
 
@@ -261,10 +282,10 @@ let g:polyglot_disabled = ['sensible']
 
 " vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nmap <C-h> :TmuxNavigateLeft<cr>
+nmap <C-j> :TmuxNavigateDown<cr>
+nmap <C-k> :TmuxNavigateUp<cr>
+nmap <C-l> :TmuxNavigateRight<cr>
 
 " Seamless resize in Vim/tmux
 let g:tmux_resize_vertical_step = 3
@@ -372,3 +393,7 @@ silent! helptags ALL
 if filereadable(expand("~/.vimrc_local"))
     source ~/.vimrc_local
 endif
+
+" Just a temporary hack
+autocmd BufNewFile,BufRead *.cc,*.h setlocal shiftwidth=2
+autocmd BufNewFile,BufRead *.cc,*.h setlocal softtabstop=2

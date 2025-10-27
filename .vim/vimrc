@@ -140,6 +140,20 @@ nnoremap <C-P> :FZF<CR>
 " coc.nvim
 " https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
 
+let g:coc_global_extensions = [
+    \ 'coc-clangd',
+    \ 'coc-git',
+    \ 'coc-json',
+    \ 'coc-markdownlint',
+    \ 'coc-markmap',
+    \ 'coc-pyright',
+    \ 'coc-toml',
+    \ 'coc-vimlsp',
+    \ 'coc-webview',
+    \ 'coc-yaml',
+\ ]
+
+
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
 set encoding=utf-8

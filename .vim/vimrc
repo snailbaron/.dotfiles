@@ -1,11 +1,13 @@
 call plug#begin()
     Plug 'https://github.com/LnL7/vim-nix.git'
+    Plug 'https://github.com/altercation/vim-colors-solarized.git'
     Plug 'https://github.com/bazelbuild/vim-bazel.git'
     Plug 'https://github.com/chriskempson/base16-vim.git'
     Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
     Plug 'https://github.com/dawikur/base16-vim-airline-themes.git'
     Plug 'https://github.com/dense-analysis/ale.git'
     Plug 'https://github.com/dhruvasagar/vim-table-mode'
+    Plug 'https://github.com/fguisso/sfer.nvim.git'
     Plug 'https://github.com/gerw/vim-HiLinkTrace.git'
     Plug 'https://github.com/google/vim-maktaba'
     Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -20,8 +22,7 @@ call plug#begin()
     Plug 'https://github.com/zchee/vim-flatbuffers.git'
 call plug#end()
 
-filetype plugin on
-filetype indent off
+filetype plugin indent on
 
 "let g:loaded_youcompleteme = 1
 "let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
@@ -32,8 +33,10 @@ if v:version >= 900
     set termguicolors
 endif
 
+"let g:material_theme_style = 'darker'
 let g:material_theme_style = 'darker'
 colorscheme material
+exec 'hi Error guifg=' . g:material_colorscheme_map.comments.gui
 
 " colorscheme base16-default-dark
 " highlight SpellBad   cterm=None ctermfg=0 ctermbg=1
@@ -68,6 +71,7 @@ set nocindent
 set nosmartindent
 set number
 set shiftwidth=4
+set signcolumn=yes
 set softtabstop=4
 set splitbelow
 set splitright
@@ -106,12 +110,6 @@ function! OnBufferOpen()
         match Error /\s\+$/
     endif
 endfunction
-
-autocmd FileType c,cpp setlocal ts=8 sts=4 sw=4 expandtab
-autocmd FileType html,xml,fbs setlocal ts=8 sts=2 sw=2 expandtab
-autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-
-autocmd FileType cpp setlocal matchpairs=(:),{:},[:],<:>
 
 packadd! matchit
 
@@ -233,7 +231,7 @@ nmap <leader>ac  <Plug>(coc-codeaction-cursor)
 " Remap keys for apply code actions affect whole buffer
 nmap <leader>as  <Plug>(coc-codeaction-source)
 " Apply the most preferred quickfix action to fix diagnostic on the current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>q  <Plug>(coc-fix-current)
 
 " Remap keys for applying refactor code actions
 nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
@@ -325,11 +323,11 @@ let g:ale_linters = {
 \   'c': [],
 \   'cmake': [],
 \   'cpp': [],
-\   'json': ['jq'],
+\   'json': ['biome'],
 \   'nix': ['nixpkgs-fmt'],
 \   'php': [],
 \   'proto': ['buf_lint', 'protolint'],
-\   'python': ['flake8', 'pylint', 'mypy'],
+\   'python': ['pylint', 'ruff'],
 \   'yaml': ['yaml-language-server', 'yamllint', 'yq'],
 \ }
 
@@ -343,6 +341,7 @@ let g:ale_fixers = {
 \   'json': ['jq'],
 \   'python': ['black', 'isort'],
 \   'sh': ['shfmt'],
+\   'xml': ['xmllint'],
 \ }
 
 let g:ale_python_mypy_options = '--strict --python-executable=python3'
@@ -350,6 +349,7 @@ let g:ale_python_flake8_options = '--ignore=E203,E501,E701,E704,W503 --extend-se
 let g:ale_python_isort_options = '--profile black'
 let g:ale_json_jq_options = '--indent 4'
 let g:ale_sh_bashate_options = '-i E003'
+let g:ale_python_pyright_auto_poetry = 1
 
 nnoremap <silent> <leader>x :ALEFix<cr>
 
@@ -471,7 +471,3 @@ silent! helptags ALL
 if filereadable(expand("~/.vimrc_local"))
     source ~/.vimrc_local
 endif
-
-" Just a temporary hack
-autocmd BufNewFile,BufRead *.cc,*.h setlocal shiftwidth=2
-autocmd BufNewFile,BufRead *.cc,*.h setlocal softtabstop=2

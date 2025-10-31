@@ -1,31 +1,48 @@
 {
     "inlayHint.enable": false,
-    "python.formatting.provider": "black",
-    "suggest.noselect": true,
     "languageserver": {
         "cmake": {
             "command": "cmake-language-server",
             "filetypes": [
                 "cmake"
             ],
-            "rootPatterns": [
-                "build/"
-            ],
             "initializationOptions": {
                 "buildDirectory": "build"
-            }
+            },
+            "rootPatterns": [
+                "build/"
+            ]
         },
         "starpls": {
-            "command": "starpls",
             "args": [
                 "server",
                 "--experimental_enable_label_completions",
                 "--experimental_infer_ctx_attributes",
                 "--experimental_use_code_flow_analysis"
             ],
+            "command": "starpls",
             "filetypes": [
                 "bzl"
             ]
         }
-    }
+    },
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nil",
+    "nix.serverSettings": {
+        "nil": {
+            "diagnostics": {
+                "ignored": [
+                    "unused_binding",
+                    "unused_with"
+                ]
+            },
+            "formatting": {
+                "command": [
+                    "nixfmt"
+                ]
+            }
+        }
+    },
+    "python.formatting.provider": "ruff",
+    "suggest.noselect": true
 }

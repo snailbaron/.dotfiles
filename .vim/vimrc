@@ -142,11 +142,14 @@ nnoremap <C-P> :FZF<CR>
 
 let g:coc_global_extensions = [
     \ 'coc-clangd',
+    \ 'coc-cmake',
     \ 'coc-git',
     \ 'coc-json',
     \ 'coc-markdownlint',
     \ 'coc-markmap',
+    \ 'coc-nix',
     \ 'coc-pyright',
+    \ 'coc-sh',
     \ 'coc-toml',
     \ 'coc-vimlsp',
     \ 'coc-webview',

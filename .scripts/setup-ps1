@@ -7,7 +7,7 @@ _ys="\[\e[1;33m\]"
 _cs="\[\e[1;36m\]"
 _end="\[\e[0m\]"
 
-_prompt_machine_name=${_prompt_machine_name:-MACHINE}
+_prompt_machine_name=${_prompt_machine_name:-$(hostname)}
 
 _prompt_nonzero_return_code() {
     code=$?

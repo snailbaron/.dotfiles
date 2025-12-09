@@ -22,7 +22,8 @@ call plug#begin()
     Plug 'https://github.com/zchee/vim-flatbuffers.git'
 call plug#end()
 
-filetype plugin indent on
+filetype plugin on
+filetype indent off
 
 "let g:loaded_youcompleteme = 1
 "let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
@@ -144,12 +145,15 @@ let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-cmake',
     \ 'coc-git',
+    \ 'coc-go',
+    \ 'coc-golines',
     \ 'coc-json',
     \ 'coc-markdownlint',
     \ 'coc-markmap',
     \ 'coc-nix',
     \ 'coc-pyright',
     \ 'coc-sh',
+    \ 'coc-rust-analyzer',
     \ 'coc-toml',
     \ 'coc-vimlsp',
     \ 'coc-webview',
@@ -356,7 +360,7 @@ let g:ale_fixers = {
 \   'bzl': ['buildifier'],
 \   'cpp': ['clang-format'],
 \   'json': ['jq'],
-\   'python': ['black', 'isort'],
+\   'python': ['ruff', 'ruff_format'],
 \   'sh': ['shfmt'],
 \   'xml': ['xmllint'],
 \ }

@@ -7,5 +7,5 @@ augroup custom_filetypedetect
     au! BufRead,BufNewFile
         \ *.bzl,WORKSPACE,WORKSPACE.*,MODULE.bazel,BUILD,BUILD.bazel,
         \*.bzl.*,MODULE.bazel.*,BUILD.*,BUILD.bazel.*
-        \ setf bzl
+        \ set filetype=bzl
 augroup end

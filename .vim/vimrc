@@ -14,7 +14,6 @@ call plug#begin()
     Plug 'https://github.com/kaicataldo/material.vim'
     Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
     Plug 'https://github.com/preservim/nerdtree.git'
-    Plug 'https://github.com/tikhomirov/vim-glsl'
     Plug 'https://github.com/tpope/vim-dispatch.git'
     Plug 'https://github.com/tpope/vim-unimpaired.git'
     Plug 'https://github.com/tpope/vim-vinegar.git'
@@ -144,16 +143,18 @@ nnoremap <C-P> :FZF<CR>
 let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-cmake',
+    \ 'coc-css',
     \ 'coc-git',
     \ 'coc-go',
     \ 'coc-golines',
+    \ 'coc-html',
     \ 'coc-json',
     \ 'coc-markdownlint',
     \ 'coc-markmap',
     \ 'coc-nix',
     \ 'coc-pyright',
-    \ 'coc-sh',
     \ 'coc-rust-analyzer',
+    \ 'coc-sh',
     \ 'coc-toml',
     \ 'coc-vimlsp',
     \ 'coc-webview',
@@ -363,14 +364,16 @@ let g:ale_fixers = {
 \   'python': ['ruff', 'ruff_format'],
 \   'sh': ['shfmt'],
 \   'xml': ['xmllint'],
+\   'yaml': ['yq'],
 \ }
 
-let g:ale_python_mypy_options = '--strict --python-executable=python3'
+"let g:ale_json_jq_options = '--indent 4'
 let g:ale_python_flake8_options = '--ignore=E203,E501,E701,E704,W503 --extend-select=B950 --max-line-length=88'
 let g:ale_python_isort_options = '--profile black'
-let g:ale_json_jq_options = '--indent 4'
-let g:ale_sh_bashate_options = '-i E003'
+let g:ale_python_mypy_options = '--strict --python-executable=python3'
 let g:ale_python_pyright_auto_poetry = 1
+let g:ale_sh_bashate_options = '-i E003'
+let g:ale_yaml_yq_options = '-y'
 
 nnoremap <silent> <leader>x :ALEFix<cr>
 

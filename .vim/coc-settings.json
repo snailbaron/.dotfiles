@@ -1,4 +1,8 @@
 {
+    "html.format.extraLiners": "",
+    "html.format.indentInnerHtml": true,
+    "html.autoClosingTags": false,
+    "html.autoCreateQuotes": false,
     "inlayHint.enable": false,
     "languageserver": {
         "cmake": {
@@ -44,5 +48,6 @@
         }
     },
     "python.formatting.provider": "ruff",
-    "suggest.noselect": true
+    "suggest.noselect": true,
+    "clangd.trace.file": "/tmp/clangd.trace"
 }

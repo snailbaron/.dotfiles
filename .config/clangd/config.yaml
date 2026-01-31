@@ -1,6 +1,8 @@
 CompileFlags:
   Remove:
     - -fno-canonical-system-headers
+Completion:
+  ArgumentLists: None
 Diagnostics:
   UnusedIncludes: Strict
   ClangTidy:

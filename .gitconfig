@@ -1,7 +1,5 @@
 [log]
 	decorate = true
-[alias]
-	hist = log --all --tags --graph --decorate --oneline
 [push]
 	default = simple
 	autoSetupRemote = true
@@ -18,3 +16,6 @@
 	process = git-lfs filter-process
 [diff]
 	wsErrorHighlight = all
+[alias]
+	hist = log --all --tags --graph --decorate --oneline
+	hist2 = log --all --tags --graph --decorate --oneline --first-parent

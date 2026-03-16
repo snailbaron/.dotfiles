@@ -49,5 +49,6 @@
     },
     "python.formatting.provider": "ruff",
     "suggest.noselect": true,
-    "clangd.trace.file": "/tmp/clangd.trace"
+    "clangd.trace.file": "/tmp/clangd.trace",
+    "yaml.format.enable": true
 }

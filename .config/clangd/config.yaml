@@ -1,4 +1,6 @@
 CompileFlags:
+  Add:
+    - -std=c++26
   Remove:
     - -fno-canonical-system-headers
 Completion:

@@ -144,6 +144,7 @@ let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-cmake',
     \ 'coc-css',
+    \ 'coc-flutter',
     \ 'coc-git',
     \ 'coc-go',
     \ 'coc-golines',

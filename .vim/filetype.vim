@@ -3,6 +3,7 @@ augroup custom_filetypedetect
     au! BufRead,BufNewFile *.fbs64 set filetype=fbs
     au! BufRead,BufNewFile *.sarif set filetype=json
     au! BufRead,BufNewFile MODULE.bazel.lock set filetype=json
+    au! BufRead,BufNewFile .bazelrc set filetype=conf
 
     au! BufRead,BufNewFile
         \ *.bzl,WORKSPACE,WORKSPACE.*,MODULE.bazel,BUILD,BUILD.bazel,

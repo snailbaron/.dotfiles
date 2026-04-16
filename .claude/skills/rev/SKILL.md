@@ -14,6 +14,11 @@ e.g. `develop`.
 3. Report any issues, starting with the most critical ones.
 4. Do not modify the files.
 5. Assume that the user might rebase and edit commits in-between the prompts.
-   They might also have some local unstaged changes.
+   They might also have some local unstaged changes. You are always reviewing
+   the code in the working directory; does not matter if it's unstaged, staged,
+   or committed.
 6. Do not complement the codebase if it's well structured. Do not specifically
    mention the things that are done well. Focus on the issues.
+7. If you can find a PR attached to the changes, inspect it as well. Pay
+   attention to any useful comments and concerns from the reviewers. If you
+   cannot access the PR due to access restrictions, report it.

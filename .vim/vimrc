@@ -147,7 +147,6 @@ let g:coc_global_extensions = [
     \ 'coc-flutter',
     \ 'coc-git',
     \ 'coc-go',
-    \ 'coc-golines',
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-markdownlint',

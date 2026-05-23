@@ -6,6 +6,7 @@
 .clangd/
 .netrwhist
 .vs/
+/.claude
 /CMakeSettings.json
 /build
 /build-debug

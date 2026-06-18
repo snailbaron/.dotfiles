@@ -22,3 +22,6 @@
 	dshow = -c diff.external=difft show --ext-diff
 	hist = log --all --tags --graph --decorate --oneline
 	hist2 = log --all --tags --graph --decorate --oneline --first-parent
+	dlog = -c diff.external=difft log --ext-diff
+	dshow = -c diff.external=difft show --ext-diff
+	ddiff = -c diff.external=difft diff

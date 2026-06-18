@@ -5,7 +5,6 @@ call plug#begin()
     Plug 'https://github.com/chriskempson/base16-vim.git'
     Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
     Plug 'https://github.com/dawikur/base16-vim-airline-themes.git'
-    Plug 'https://github.com/dense-analysis/ale.git'
     Plug 'https://github.com/dhruvasagar/vim-table-mode'
     Plug 'https://github.com/fguisso/sfer.nvim.git'
     Plug 'https://github.com/gerw/vim-HiLinkTrace.git'
@@ -25,9 +24,6 @@ call plug#end()
 
 filetype plugin on
 filetype indent off
-
-"let g:loaded_youcompleteme = 1
-"let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
 
 syntax enable
 if v:version >= 900
@@ -330,51 +326,6 @@ activate_file_path = os.path.join(venv_path, 'bin/activate')
 exec(open(activate_file_path).read(), dict(__file__=activate_file_path))
 EOF
 endfunction
-
-" ALE
-
-let g:ale_disable_lsp = 1
-let g:ale_echo_msg_format = '[%linter%] [%severity%] (%code%) %s'
-let g:ale_virtualtext_cursor = 'current'
-
-let g:ale_linters = {
-\   'c': [],
-\   'cmake': [],
-\   'cpp': [],
-\   'go': [],
-\   'json': ['biome'],
-\   'nix': ['nixpkgs-fmt'],
-\   'php': [],
-\   'proto': ['buf_lint', 'protolint'],
-\   'python': ['pylint', 'ruff'],
-\   'yaml': [],
-\ }
-
-autocmd BufRead,BufNewFile .github/workflows/*.yaml
-    \ let b:ale_linters = ['actionlint', 'yaml-language-server', 'yamllint', 'yq']
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines'],
-\   'bzl': ['buildifier'],
-\   'cpp': ['clang-format'],
-\   'json': ['jq'],
-\   'python': ['ruff', 'ruff_format'],
-\   'sh': ['shfmt'],
-\   'xml': ['xmllint'],
-\   'yaml': [],
-\ }
-
-"let g:ale_json_jq_options = '--indent 4'
-let g:ale_python_flake8_options = '--ignore=E203,E501,E701,E704,W503 --extend-select=B950 --max-line-length=88'
-let g:ale_python_isort_options = '--profile black'
-let g:ale_python_mypy_options = '--strict --python-executable=python3'
-let g:ale_python_pyright_auto_poetry = 1
-let g:ale_sh_bashate_options = '-i E003'
-let g:ale_yaml_yq_options = '-y'
-
-nnoremap <silent> <leader>x :ALEFix<cr>
-
-" let g:ale_fix_on_save = 1
 
 " vim-polyglot
 let g:polyglot_disabled = ['sensible']

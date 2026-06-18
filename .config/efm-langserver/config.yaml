@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mattn/efm-langserver/refs/heads/master/schema.json
+version: 2
+
+tools:
+  buildifier: &buildifier
+    format-command: buildifier
+    format-stdin: true
+
+languages:
+  bzl:
+    - <<: *buildifier

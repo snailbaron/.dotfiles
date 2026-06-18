@@ -22,3 +22,7 @@ description: Do a code review of the changes in a repository.
 8. If you can find a PR attached to the changes, inspect it as well. Pay
    attention to any useful comments and concerns from the reviewers. If you
    cannot access the PR due to access restrictions, report it.
+9. When the user is asking to check again, assume that any changes might have
+   happened to the code or the chain of commits. There might be unstaged
+   changes, some commits might have been reordered, squashed, split, or
+   rearranged. Always consider the working directory as the current state.

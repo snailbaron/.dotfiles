@@ -30,6 +30,46 @@
                 "build/"
             ]
         },
+        "dart": {
+            "filetypes": [
+                "dart"
+            ],
+            "command": "dart",
+            "args": [
+                "language-server"
+            ]
+        },
+        "efm": {
+            "command": "efm-langserver",
+            "filetypes": [
+                "bzl"
+            ]
+        },
+        "golangci-lint-langserver": {
+            "filetypes": [
+                "go"
+            ],
+            "command": "golangci-lint-langserver",
+            "initializationOptions": {
+                "command": [
+                    "golangci-lint",
+                    "run",
+                    "--output.json.path",
+                    "stdout",
+                    "--show-stats=false",
+                    "--issues-exit-code=1"
+                ]
+            }
+        },
+        "gopls": {
+            "filetypes": [
+                "go"
+            ],
+            "command": "gopls",
+            "args": [
+                "serve"
+            ]
+        },
         "starpls": {
             "args": [
                 "server",

@@ -23,3 +23,5 @@ tags
 tags.lock
 tags.temp
 ycm_*.py
+
+**/.claude/settings.local.json

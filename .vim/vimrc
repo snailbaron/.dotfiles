@@ -14,7 +14,9 @@ call plug#begin()
     Plug 'https://github.com/kaicataldo/material.vim'
     Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
     Plug 'https://github.com/preservim/nerdtree.git'
+    Plug 'https://github.com/tpope/vim-commentary.git'
     Plug 'https://github.com/tpope/vim-dispatch.git'
+    Plug 'https://github.com/tpope/vim-fugitive.git'
     Plug 'https://github.com/tpope/vim-unimpaired.git'
     Plug 'https://github.com/tpope/vim-vinegar.git'
     Plug 'https://github.com/vim-airline/vim-airline.git'
@@ -113,6 +115,11 @@ endfunction
 
 packadd! matchit
 
+" Standard Vim plugins
+" --------------------
+let g:markdown_fenced_languages = ['c', 'cpp']
+let g:markdown_minlines = 200
+
 " vim-airline
 let g:airline_theme='base16_default_dark'
 
@@ -144,9 +151,7 @@ let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-cmake',
     \ 'coc-css',
-    \ 'coc-flutter',
     \ 'coc-git',
-    \ 'coc-go',
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-markdownlint',
@@ -161,7 +166,6 @@ let g:coc_global_extensions = [
     \ 'coc-xml',
     \ 'coc-yaml',
 \ ]
-
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
@@ -217,16 +221,7 @@ nnoremap <silent><nowait> <leader>t <Plug>(coc-type-definition)
 nnoremap <silent><nowait> <leader>i <Plug>(coc-implementation)
 nnoremap <silent><nowait> <leader>r <Plug>(coc-references)
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
+nnoremap <silent> K :call CocActionAsync('doHover')<CR>
 
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -346,6 +341,7 @@ let g:ale_linters = {
 \   'c': [],
 \   'cmake': [],
 \   'cpp': [],
+\   'go': [],
 \   'json': ['biome'],
 \   'nix': ['nixpkgs-fmt'],
 \   'php': [],

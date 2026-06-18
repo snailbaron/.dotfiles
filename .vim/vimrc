@@ -138,7 +138,6 @@ let g:coc_global_extensions = [
     \ 'coc-markdownlint',
     \ 'coc-markmap',
     \ 'coc-nix',
-    \ 'coc-pyright',
     \ 'coc-rust-analyzer',
     \ 'coc-sh',
     \ 'coc-toml',

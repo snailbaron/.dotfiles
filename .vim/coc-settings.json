@@ -70,6 +70,24 @@
                 "serve"
             ]
         },
+        "pyright": {
+            "filetypes": [
+                "python"
+            ],
+            "command": "pyright-langserver",
+            "args": [
+                "--stdio"
+            ]
+        },
+        "ruff": {
+            "filetypes": [
+                "python"
+            ],
+            "command": "ruff",
+            "args": [
+                "server"
+            ]
+        },
         "starpls": {
             "args": [
                 "server",

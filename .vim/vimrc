@@ -1,14 +1,8 @@
 call plug#begin()
-    Plug 'https://github.com/LnL7/vim-nix.git'
-    Plug 'https://github.com/altercation/vim-colors-solarized.git'
-    Plug 'https://github.com/bazelbuild/vim-bazel.git'
-    Plug 'https://github.com/chriskempson/base16-vim.git'
     Plug 'https://github.com/christoomey/vim-tmux-navigator.git'
-    Plug 'https://github.com/dawikur/base16-vim-airline-themes.git'
     Plug 'https://github.com/dhruvasagar/vim-table-mode'
     Plug 'https://github.com/fguisso/sfer.nvim.git'
     Plug 'https://github.com/gerw/vim-HiLinkTrace.git'
-    Plug 'https://github.com/google/vim-maktaba'
     Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'https://github.com/kaicataldo/material.vim'
     Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
@@ -35,12 +29,6 @@ endif
 let g:material_theme_style = 'darker'
 colorscheme material
 exec 'hi Error guifg=' . g:material_colorscheme_map.comments.gui
-
-" colorscheme base16-default-dark
-" highlight SpellBad   cterm=None ctermfg=0 ctermbg=1
-" highlight SpellLocal cterm=None ctermfg=0 ctermbg=12
-" highlight SpellCap   cterm=None ctermfg=0 ctermbg=13
-" highlight SpellRare  cterm=None ctermfg=0 ctermbg=14
 
 set autoindent
 set autoread
@@ -115,9 +103,6 @@ packadd! matchit
 " --------------------
 let g:markdown_fenced_languages = ['c', 'cpp']
 let g:markdown_minlines = 200
-
-" vim-airline
-let g:airline_theme='base16_default_dark'
 
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1

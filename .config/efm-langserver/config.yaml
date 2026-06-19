@@ -3,7 +3,7 @@ version: 2
 
 tools:
   buildifier: &buildifier
-    format-command: buildifier
+    format-command: buildifier -path ${INPUT}
     format-stdin: true
 
 languages:

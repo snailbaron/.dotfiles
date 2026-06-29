@@ -30,6 +30,15 @@
                 "build/"
             ]
         },
+        "cucumber-language-server": {
+            "filetypes": [
+                "cucumber"
+            ],
+            "command": "cucumber-language-server",
+            "args": [
+                "--stdio"
+            ]
+        },
         "dart": {
             "filetypes": [
                 "dart"
@@ -69,6 +78,12 @@
             "args": [
                 "serve"
             ]
+        },
+        "just-lsp": {
+            "filetypes": [
+                "just"
+            ],
+            "command": "just-lsp"
         },
         "pyright": {
             "filetypes": [

@@ -12,11 +12,11 @@
                 "cpp"
             ]
         },
-        "cmake": {
-            "command": "cmake-language-server",
+        "cmake-language-server": {
             "filetypes": [
                 "cmake"
             ],
+            "command": "cmake-language-server",
             "initializationOptions": {
                 "buildDirectory": "build"
             },
@@ -42,12 +42,12 @@
                 "language-server"
             ]
         },
-        "efm": {
-            "command": "efm-langserver",
+        "efm-langserver": {
             "filetypes": [
                 "bzl",
                 "markdown"
-            ]
+            ],
+            "command": "efm-langserver"
         },
         "golangci-lint-langserver": {
             "filetypes": [
@@ -99,15 +99,15 @@
             ]
         },
         "starpls": {
+            "filetypes": [
+                "bzl"
+            ],
+            "command": "starpls",
             "args": [
                 "server",
                 "--experimental_enable_label_completions",
                 "--experimental_infer_ctx_attributes",
                 "--experimental_use_code_flow_analysis"
-            ],
-            "command": "starpls",
-            "filetypes": [
-                "bzl"
             ]
         }
     },
@@ -128,7 +128,6 @@
             }
         }
     },
-    "python.formatting.provider": "ruff",
     "suggest.noselect": true,
     "yaml.format.enable": true
 }

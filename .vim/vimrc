@@ -314,6 +314,32 @@ endfunction
 " vim-polyglot
 let g:polyglot_disabled = ['sensible']
 
+" Name conversions
+
+let s:SOME_THING_HERE = ''
+
+function! UpperCaseToCamelCase()
+    let l:word = expand('<cword>')
+
+    let l:capitalize = 1
+    let l:result = ''
+    for l:c in l:word
+        if l:c == '_'
+            let l:capitalize = 1
+            continue
+        endif
+
+        if l:capitalize
+            let l:result = l:result . toupper(l:c)
+        else
+            let l:result = l:result . tolower(l:c)
+        endif
+        let l:capitalize = 0
+    endfor
+
+    call feedkeys("ciw" .. l:result .. "\<Esc>b", 'n')
+endfunction
+
 " vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1
 nnoremap <C-h> :TmuxNavigateLeft<cr>

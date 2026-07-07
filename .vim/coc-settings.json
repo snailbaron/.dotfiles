@@ -1,17 +1,5 @@
 {
     "clangd.trace.file": "/tmp/clangd.trace",
-    "go.goplsOptions": {
-        "build.directoryFilters": [
-            "-bazel-bin",
-            "-bazel-out",
-            "-bazel-testlogs"
-        ],
-        "build.workspaceFiles": [
-            "**/BUILD",
-            "**/WORKSPACE",
-            "**/*.{bzl,bazel}"
-        ]
-    },
     "html.autoClosingTags": false,
     "html.autoCreateQuotes": false,
     "html.format.extraLiners": "",

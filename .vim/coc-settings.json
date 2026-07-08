@@ -1,11 +1,17 @@
 {
-    "clangd.trace.file": "/tmp/clangd.trace",
     "html.autoClosingTags": false,
     "html.autoCreateQuotes": false,
     "html.format.extraLiners": "",
     "html.format.indentInnerHtml": true,
     "inlayHint.enable": false,
     "languageserver": {
+        "clangd": {
+            "command": "clangd",
+            "filetypes": [
+                "c",
+                "cpp"
+            ]
+        },
         "cmake": {
             "command": "cmake-language-server",
             "filetypes": [

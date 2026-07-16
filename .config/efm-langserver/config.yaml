@@ -1,11 +1,24 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/mattn/efm-langserver/refs/heads/master/schema.json
 version: 2
 
+#log-file: /tmp/efm.log
+#log-level: 5
+
 tools:
   buildifier: &buildifier
     format-command: buildifier -path ${INPUT}
     format-stdin: true
 
+  markdownlint: &markdownlint
+    lint-command: markdownlint --stdin
+    lint-stdin: true
+    lint-after-open: true
+    lint-formats:
+      - '%f:%l:%c %m'
+      - '%f:%l %m'
+
 languages:
   bzl:
     - <<: *buildifier
+  markdown:
+    - <<: *markdownlint

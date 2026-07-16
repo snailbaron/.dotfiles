@@ -45,7 +45,8 @@
         "efm": {
             "command": "efm-langserver",
             "filetypes": [
-                "bzl"
+                "bzl",
+                "markdown"
             ]
         },
         "golangci-lint-langserver": {

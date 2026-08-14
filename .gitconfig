@@ -25,3 +25,5 @@
 	dlog = -c diff.external=difft log --ext-diff
 	dshow = -c diff.external=difft show --ext-diff
 	ddiff = -c diff.external=difft diff
+	ll = log --oneline
+	shape = log --oneline --graph --simplify-by-decoration --glob='refs/remotes/origin/sal*' --glob='refs/remotes/origin/main' --decorate-refs-exclude='refs/tags/*'

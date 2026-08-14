@@ -98,6 +98,15 @@
                 "server"
             ]
         },
+        "spec42": {
+            "filetypes": [
+                "sysml"
+            ],
+            "command": "spec42",
+            "args": [
+                "lsp"
+            ]
+        },
         "starpls": {
             "filetypes": [
                 "bzl"

@@ -204,6 +204,7 @@ nnoremap <silent><nowait> <leader>i <Plug>(coc-implementation)
 nnoremap <silent><nowait> <leader>r <Plug>(coc-references)
 
 nnoremap <silent> K :call CocActionAsync('doHover')<CR>
+inoremap <silent> <C-k> <Cmd>call CocActionAsync('showSignatureHelp')<CR>
 
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')

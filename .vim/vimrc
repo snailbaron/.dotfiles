@@ -343,6 +343,8 @@ function! UpperCaseToCamelCase()
     call feedkeys("ciw" .. l:result .. "\<Esc>b", 'n')
 endfunction
 
+nnoremap <silent> <leader>cc :call UpperCaseToCamelCase()<CR>
+
 " vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1
 nnoremap <C-h> :TmuxNavigateLeft<cr>

@@ -1,4 +1,7 @@
 {
+    "hover.floatConfig": {
+        "maxWidth": 82
+    },
     "html.autoClosingTags": false,
     "html.autoCreateQuotes": false,
     "html.format.extraLiners": "",

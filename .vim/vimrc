@@ -55,6 +55,7 @@ set listchars=tab:▸\ ,lead:·,trail:·,extends:>,precedes:<,nbsp:+,eol:¬
 set mouse=a
 set nobackup
 set nocindent
+set nojoinspaces
 set nosmartindent
 set number
 set shiftwidth=4
